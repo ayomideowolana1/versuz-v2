@@ -1,0 +1,58 @@
+@import "./tools.less";
+
+.new-game {
+  section {
+    * {
+      .font-pilat;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .choices {
+      margin-top: 16px;
+      .choice {
+        height: 162px;
+        max-width: 343px;
+        margin: auto;
+        margin-bottom: 24px;
+        border-radius: 16px;
+        padding: 24px;
+        display: flex;
+        gap: 24px;
+        color: white;
+        &.onevone{
+            background: @blue-gradient;
+        }
+        &.pool{
+            background: @orange-gradient;
+        }
+        &.tournament{
+            background: @purple-gradient;
+        }
+
+
+        .text {
+          height: 100%;
+        //   .border;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          h1 {
+            font-size: 24px;
+            font-weight: bold;
+          }
+          p {
+            font-size: 12px;
+            margin: none;
+          }
+        }
+        .border;
+      }
+    }
+  }
+}

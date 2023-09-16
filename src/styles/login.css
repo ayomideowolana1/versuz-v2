@@ -1,0 +1,234 @@
+@import "../fonts/stylesheet.css";
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-pilat {
+  font-family: Pilat Extended;
+}
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.border {
+  border: 1px solid;
+}
+.login {
+  position: relative;
+  background: url("../images/mobile-auth-bg.svg");
+  overflow-y: scroll;
+  background-size: cover;
+  padding: 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.login .home-image {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.login * {
+  font-family: Pilat Extended;
+  font-size: 14px;
+}
+.login .auth-card {
+  margin-bottom: 88px;
+  padding: 24px 20px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 8px 8px -4px rgba(20, 27, 32, 0.03), 0px 20px 24px -4px rgba(20, 27, 32, 0.08);
+  border-radius: 12px;
+}
+.login .auth-card.default {
+  margin-top: 60px;
+}
+.login .auth-card.signup {
+  margin-bottom: 0px;
+}
+.login .auth-card h1 {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+.login .auth-card h1.sm {
+  font-size: 20px;
+}
+.login .auth-card h1.left {
+  text-align: left;
+}
+.login .auth-card .blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+  margin-top: 10px;
+}
+.login .auth-card .blocks .block {
+  height: 4px;
+  background: #efeefe;
+}
+.login .auth-card .blocks .block.active {
+  background: #5e57f2;
+}
+.login .auth-card form {
+  margin-top: 36px;
+  display: grid;
+  row-gap: 24px;
+  position: relative;
+}
+.login .auth-card form label {
+  color: #454a4e;
+}
+.login .auth-card form label,
+.login .auth-card form p,
+.login .auth-card form a,
+.login .auth-card form input {
+  font-family: dmsans;
+  font-style: normal;
+}
+.login .auth-card form .input-cont {
+  border-radius: 8px;
+  border: 1px solid #d9dadb;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  padding: 10px 14px;
+  display: flex;
+}
+.login .auth-card form .input-cont.err {
+  border: 1px solid #FCA1A6;
+}
+.login .auth-card form .input-cont input {
+  padding: 0px;
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  color: #262c31;
+}
+.login .auth-card form .input-cont input:focus {
+  outline: none;
+  background: none;
+  background-color: none !important;
+}
+.login .auth-card .form2 .img-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+.login .auth-card .form2 .img-cont img {
+  width: 150px;
+  height: 150px;
+  aspect-ratio: 1/1;
+  object-fit: fill;
+  border-radius: 50%;
+}
+.login .auth-card .form2 .img-cont h3 {
+  font-weight: bold;
+  margin-top: 8px;
+  font-size: 18px;
+  font-family: dmsans;
+  font-style: normal;
+}
+.login .auth-card .form-check-label {
+  color: #1f252a;
+  font-size: 14px;
+}
+.login .auth-card .form-check-label a {
+  text-decoration: none;
+  color: #564fdc;
+}
+.login .auth-card .form-check-input:focus {
+  outline: none;
+}
+.login .auth-card .form-check-input:checked[type="checkbox"] {
+  background-image: url("../images/checkbox.svg");
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+.login .auth-card button {
+  margin-top: 36px;
+  font-family: dmsans;
+  font-style: normal;
+  width: 100%;
+  background: #fe4e40;
+  border: none;
+  padding: 16px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 8px;
+}
+.login .auth-card button.signup {
+  margin-top: 20px;
+}
+.login .auth-card button.disabled {
+  background: #595E62;
+}
+.login .auth-card button.white {
+  background: white ;
+  color: black ;
+  border: 1px solid #D9DADB;
+}
+.login .auth-card p {
+  font-size: 14px;
+  font-family: dmsans;
+  font-style: normal;
+  margin: 16px;
+  color: #595e62;
+  text-align: center;
+}
+.login .auth-card p.err-message {
+  text-align: left;
+  color: #FCA1A6;
+  margin: 5px;
+}
+.login .auth-card p.purple {
+  color: #564fdc;
+}
+.login .auth-card p.dark {
+  color: #000;
+}
+.login .auth-card p.left {
+  text-align: justify;
+  margin-left: 0px;
+  margin-bottom: 24px;
+}
+.login .auth-card p a {
+  color: #595e62;
+  text-decoration: none;
+  font-family: inherit;
+  font-weight: bold;
+}
+.login .auth-card p a.purple {
+  color: #564fdc;
+}
+.login .auth-card .main-img {
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.login .auth-card .divider {
+  border-top: 1px solid #e4e7ec;
+  margin-left: -16px;
+  width: 110%;
+}

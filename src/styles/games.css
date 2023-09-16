@@ -1,0 +1,64 @@
+@import "../fonts/stylesheet.css";
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-pilat {
+  font-family: Pilat Extended;
+}
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.border {
+  border: 1px solid;
+}
+.games .games-not-empty .nav-item {
+  width: 45%;
+}
+.games .games-not-empty .nav-item button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center !important;
+}
+.games .games-empty {
+  margin-top: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 0px 17px 0px;
+}
+.games .games-empty h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 16px;
+}
+.games .games-empty button {
+  background: #fe4e40;
+  border: none;
+  width: 95%;
+  margin: 17px;
+  height: 60px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+}

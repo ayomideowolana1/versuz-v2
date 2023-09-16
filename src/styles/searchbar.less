@@ -1,0 +1,28 @@
+@import "./tools.less";
+
+.searchbar {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 18px 26px;
+
+  * {
+    border-radius: 8px;
+    font-size: 14px;
+    .font-dm-sans;
+  }
+
+  input {
+    width: 210px;
+    padding: 10px 14px;
+    border: 1px solid #d9dadb;
+    &:focus{
+        outline: none;
+    }
+  }
+  button {
+    background-color: #5e57f2;
+    color: white;
+    font-weight: bold;
+    border: none;
+  }
+}

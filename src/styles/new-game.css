@@ -1,0 +1,79 @@
+@import "../fonts/stylesheet.css";
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-pilat {
+  font-family: Pilat Extended;
+}
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.border {
+  border: 1px solid;
+}
+.new-game section * {
+  font-family: Pilat Extended;
+}
+.new-game section h3 {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 24px;
+}
+.new-game section .choices {
+  margin-top: 16px;
+}
+.new-game section .choices .choice {
+  height: 162px;
+  max-width: 343px;
+  margin: auto;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+  color: white;
+  border: 1px solid;
+}
+.new-game section .choices .choice.onevone {
+  background: linear-gradient(180deg, #0682ef 0%, #094ed3 100%);
+}
+.new-game section .choices .choice.pool {
+  background: linear-gradient(315deg, #F05562 0%, #F66628 100%);
+}
+.new-game section .choices .choice.tournament {
+  background: linear-gradient(180deg, #E187F5 0%, #9266F3 100%);
+}
+.new-game section .choices .choice .text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.new-game section .choices .choice .text h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+.new-game section .choices .choice .text p {
+  font-size: 12px;
+  margin: none;
+}

@@ -1,0 +1,249 @@
+@import "../fonts/stylesheet.css";
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-pilat {
+  font-family: Pilat Extended;
+}
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.border {
+  border: 1px solid;
+}
+header {
+  background: linear-gradient(180deg, #0682ef 0%, #094ed3 100%);
+  padding-bottom: 25px;
+}
+header .header-body {
+  padding: 8px 16px;
+}
+header .header-body * {
+  font-family: Pilat Extended;
+}
+header .header-body .win {
+  margin-bottom: 25px;
+}
+header .header-body .win * {
+  color: #fff;
+}
+header .header-body .win p {
+  font-size: 12px;
+  opacity: 0.5;
+  text-align: center;
+  font-weight: 600;
+}
+header .header-body .win h1 {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+header .users {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+}
+header .users .user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header .users .user * {
+  color: #fff;
+}
+header .users .user img {
+  width: 80px;
+}
+header .users .user h3 {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 8px 0px 3px 0px;
+}
+header .users .user span {
+  font-size: 8px;
+}
+header .users .info .text {
+  color: white;
+  margin-bottom: 20px;
+}
+header .users .info .text h1 {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+header .users .info .text p {
+  font-size: 12px;
+  text-align: center;
+}
+header .users .info .badge-cont {
+  display: flex;
+  justify-content: center;
+}
+header .users .info .badge-cont .badge {
+  background: #8f8b8b;
+  border: 1px solid white;
+  font-size: 9px;
+  border-radius: 16px;
+  padding: 6px 14px;
+}
+header .users .info .badge-cont .badge.won {
+  background: #00d755;
+}
+main {
+  padding: 0px 28px;
+}
+main .tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+main .tabs span {
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+  background: #F5F5F5;
+  transition: 0.3S ease;
+}
+main .tabs span.active {
+  color: #fff;
+  background: #5E57F2;
+}
+main .stat {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+main .stat p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #5e5656;
+}
+main .stat p .center {
+  font-weight: 300;
+}
+main .line {
+  display: flex;
+  width: 100%;
+  margin-top: 5px;
+}
+main .line div {
+  height: 3px;
+}
+main .line div.a {
+  background: #5a29ff;
+}
+main .line div.b {
+  background: #8dff92;
+}
+main .main p {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px !important;
+  color: #1F252A;
+  margin-bottom: 0px;
+}
+main .main .forecasts {
+  display: flex;
+  overflow-x: scroll;
+  gap: 15px;
+  padding: 10px 0px 10px 0px;
+}
+main .forecast {
+  border: 1.411px solid #F5F5F5;
+  background: #FFF;
+  box-shadow: 0px 4px 6px -2px rgba(20, 27, 32, 0.03), 0px 12px 16px -4px rgba(20, 27, 32, 0.08);
+  /* Shadow/lg */
+  border-radius: 16px;
+  min-width: 50vw;
+  padding: 15px;
+  flex: 1;
+}
+main .forecast * {
+  font-family: dmsans;
+  font-style: normal;
+}
+main .forecast .top {
+  display: flex;
+  justify-content: space-between;
+}
+main .forecast .top span {
+  font-size: 8px;
+}
+main .forecast .top span.badge.date {
+  color: black;
+  font-weight: 300;
+}
+main .forecast .teams {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+main .forecast .teams .team {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+main .forecast .teams .team img {
+  width: 24px;
+  aspect-ratio: 1/1;
+}
+main .forecast .teams .team span {
+  font-size: 10px;
+  font-weight: 500;
+}
+main .forecast .teams .team span.name {
+  font-size: 8px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+main .forecast .end {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+main .forecast .end span {
+  font-weight: 500;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 8px;
+}
+main .forecast .end span.selection {
+  width: auto;
+  background: #5E57F2;
+  color: white;
+  border-radius: 5px;
+}
+main .forecast .end span.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #C0C0C0;
+  border-radius: 50px;
+}

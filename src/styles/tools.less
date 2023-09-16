@@ -1,0 +1,72 @@
+// FONTS
+@import "../fonts/stylesheet.css";
+
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+
+
+
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+
+.font-syne {
+  font-family: syne;
+}
+
+.font-pilat {
+  font-family: Pilat Extended;
+}
+
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+
+.font-geolacia {
+  font-family: geolacia;
+}
+
+*{
+  scroll-behavior: smooth;
+}
+
+.border{
+  border: 1px solid;
+}
+
+// COLORS
+@blue-gradient: linear-gradient(180deg, #0682ef 0%, #094ed3 100%);
+@orange-gradient: linear-gradient(315deg, #F05562 0%, #F66628 100%);
+@purple-gradient: linear-gradient(180deg, #E187F5 0%, #9266F3 100%);
+@blue-gradient-reverse: linear-gradient(180deg, #094ed3 0%, #0682ef 100%);
+@err-red: #f52f57;
+@platinum: #eaeaea;
+@platinum2: #D9D9D9;;
+@platinum-dark: #e5e5e5;
+@flash-white:#F3F4F5;
+
+// MEDIA QUERIES
+
+// mobile
+@mobile_portrait: ~"screen and (min-width: 320px) and (max-width: 768px) and (orientation: portrait) ";
+@mobile_landscape: ~"screen and (min-width: 320px) and (max-width: 926px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) ";
+
+// tab
+@tab_portrait: ~"screen and (min-width: 768px) and (max-width: 1080px) and (orientation: portrait) ";
+@tab_landscape: ~"screen and (min-device-width: 927px) and (max-device-width: 1080px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) ";
+
+// desktop
+@desktop_or_larger: ~"screen and (min-width: 1081px) ";
+
+// mixed
+@mobile_or_tab_portrait: ~"screen and (min-width: 320px) and (max-width: 1080px) and (orientation: portrait) ";
+@mobile_or_tab_landscape: ~"screen and (min-width: 320px) and (max-width: 1080px) and (orientation: landscape) ";

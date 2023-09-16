@@ -1,0 +1,87 @@
+@import "../fonts/stylesheet.css";
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-pilat {
+  font-family: Pilat Extended;
+}
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.border {
+  border: 1px solid;
+}
+nav {
+  position: sticky;
+  top: 0px;
+  border-bottom: 1px solid #F0F0F0;
+  height: 96px;
+  padding: 8px 16px;
+}
+nav * {
+  font-family: Pilat Extended;
+}
+nav .nav-header {
+  display: flex;
+  justify-content: center;
+}
+nav .nav-header img {
+  width: 34px;
+}
+nav .nav-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+nav .nav-body span {
+  margin-right: auto;
+  font-size: 1.75rem;
+  font-weight: bolder;
+}
+nav.new-game .nav-body span {
+  margin: 0px;
+}
+.ticket-icon {
+  position: relative;
+}
+.ticket-icon .number {
+  position: absolute;
+  top: -10px;
+  background-color: #E22E38;
+  width: 24px;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+  font-weight: bold;
+  color: white;
+  border-radius: 50%;
+  border: 1px solid white;
+  right: -10px;
+}
+.user-icon {
+  width: 33.35px;
+  aspect-ratio: 1/1;
+  margin-left: 16px;
+}

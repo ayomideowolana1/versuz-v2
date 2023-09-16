@@ -1,0 +1,247 @@
+@import "./tools.less";
+
+header {
+  background: @blue-gradient;
+  padding-bottom: 25px;
+  .header-body {
+    * {
+      .font-pilat;
+    }
+    padding: 8px 16px;
+    .win {
+      margin-bottom: 25px;
+      * {
+        color: #fff;
+      }
+      p {
+        font-size: 12px;
+        opacity: 0.5;
+        text-align: center;
+        font-weight: 600;
+      }
+      h1 {
+        font-size: 32px;
+        font-weight: 700;
+        text-align: center;
+      }
+    }
+  }
+
+  .users {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    .user {
+      * {
+        color: #fff;
+      }
+      img {
+        width: 80px;
+      }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        font-size: 12px;
+        font-weight: bold;
+        margin: 8px 0px 3px 0px;
+      }
+      span {
+        font-size: 8px;
+      }
+    }
+    .info {
+      .text {
+        color: white;
+        margin-bottom: 20px;
+        h1 {
+          font-size: 32px;
+          font-weight: 700;
+          text-align: center;
+        }
+        p {
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+      .badge-cont {
+        // border: 1px solid red;
+        display: flex;
+        justify-content: center;
+        .badge {
+          background: #8f8b8b;
+          border: 1px solid white;
+          font-size: 9px;
+          border-radius: 16px;
+          padding: 6px 14px;
+          &.won {
+            background: #00d755;
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+    padding: 0px 28px;
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    span {
+      padding: 10px 20px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 10px;
+
+      text-align: center;
+      background: #F5F5F5;
+      transition: 0.3S ease;
+      &.active {
+        color: #fff;
+
+        background: #5E57F2;
+      }
+    }
+  }
+
+  .stat {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    // border: 1px solid red;
+    p {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #5e5656;
+      .center{
+        font-weight: 300;
+      }
+    }
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .line {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+    div {
+      height: 3px;
+      // border: 1px solid red;
+      &.a {
+        background: #5a29ff;
+      }
+      &.b {
+        background: #8dff92;
+      }
+    }
+  }
+
+  .main {
+    // border: 1px solid red;
+    p{
+        font-size: 12px;
+        font-weight: bold;
+        margin-top: 10px !important;
+        color: #1F252A;
+        margin-bottom: 0px;
+    }
+    .forecasts {
+      display: flex;
+      overflow-x: scroll;
+      gap: 15px;
+      padding: 10px 0px 10px 0px;
+    }
+  }
+  .forecast {
+    *{
+        .font-dm-sans;
+    }
+    border-radius: 16px;
+    border: 1.411px solid  #F5F5F5;
+    background: #FFF; 
+    box-shadow: 0px 4px 6px -2px rgba(20, 27, 32, 0.03), 0px 12px 16px -4px rgba(20, 27, 32, 0.08);
+
+/* Shadow/lg */
+    border-radius: 16px;
+    min-width: 50vw;
+    padding: 15px;
+    flex: 1;
+    .top {
+      
+      display: flex;
+      justify-content: space-between;
+      span {
+        font-size: 8px;
+        &.badge{
+            &.date{
+                color: black;
+                font-weight: 300;
+            }
+        }
+      }
+    }
+    .teams {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .team {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        img {
+          width: 24px;
+          aspect-ratio: 1/1;
+        }
+        
+        span {
+          // border: 1px solid red;
+          font-size: 10px;
+          font-weight: 500;
+          // margin-left: 10px;
+          &.name{
+            font-size: 8px;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
+  
+          }
+          
+        }
+      }
+    }
+    .end{
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      span{
+          font-weight: 500;
+          text-align: center;
+          &.selection{
+            width: auto;
+              background: #5E57F2;
+              color: white;
+              border-radius: 5px;
+          }
+          &.status{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+              background: #C0C0C0;
+            //   color: white;
+              border-radius: 50px;
+              &.live{
+                
+              }
+          }
+          padding: 5px 10px;
+          font-size: 8px;
+      }
+    }
+  }
+}

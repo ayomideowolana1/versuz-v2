@@ -1,0 +1,67 @@
+@import "./tools.less";
+
+nav {
+  *{
+    .font-pilat;
+  }  
+  position: sticky;
+  top: 0px;
+  border-bottom: 1px solid #F0F0F0;
+  height: 96px;
+  padding: 8px 16px;
+  .nav-header {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 34px;
+    }
+  }
+  .nav-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    span{
+        margin-right: auto;
+        font-size: 1.75rem;
+        font-weight: bolder;
+
+    }
+  }
+
+  &.new-game{
+    .nav-body{
+      span{
+        margin: 0px;
+      }
+    }
+  }
+}
+
+.ticket-icon{
+  position: relative;
+  // border: 1px solid red;
+  .number{
+    position: absolute;
+    top: -10px;
+    background-color: #E22E38;
+    width: 24px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 9px;
+    font-weight: bold;
+    color: white;
+    border-radius: 50%;
+    border: 1px solid white;
+    right: -10px;
+  }
+}
+
+
+.user-icon{
+    width: 33.35px ;
+    aspect-ratio: 1/1;
+    margin-left: 16px;
+}

@@ -1,0 +1,141 @@
+@import "../fonts/stylesheet.css";
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-pilat {
+  font-family: Pilat Extended;
+}
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.border {
+  border: 1px solid;
+}
+.onevone .card-main {
+  width: 100%;
+  aspect-ratio: 1/0.86;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #0682ef 0%, #094ed3 100%);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.onevone .card-main .top {
+  display: flex;
+  justify-content: space-between;
+}
+.onevone .card-main .top span {
+  font-size: 0.8rem;
+  color: white;
+  font-weight: bold;
+}
+.onevone .card-main .center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.onevone .card-main .center img {
+  width: 48px;
+  aspect-ratio: 1/1;
+}
+.onevone .card-main .center span {
+  color: white;
+}
+.onevone .card-main .center .name {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+.onevone .card-main .bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.onevone .card-main .bottom .amount {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  opacity: 0.63;
+}
+.onevone .card-main .bottom .amount .title {
+  font-size: 6px;
+}
+.onevone .card-main .bottom .amount .value {
+  font-size: 10px;
+  font-weight: bold;
+}
+.onevone .card-main .bottom .button {
+  display: flex;
+  justify-content: flex-end;
+}
+.onevone .card-main .bottom .button button {
+  font-size: 6px;
+  height: 24px;
+  padding: 2px 10px;
+  border: none;
+  border-radius: 7.7px;
+  background: white;
+  color: #1570ef;
+  font-weight: bold;
+}
+.onevone .card-main.paired .center img {
+  width: 32px;
+}
+.onevone .card-main.paired .bottom .amount .value {
+  font-size: 8px;
+  color: white;
+  opacity: 1;
+}
+.onevone .card-main.paired .bottom .other {
+  display: flex;
+  justify-content: flex-end;
+}
+.onevone .card-main.paired .bottom .other span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 7px;
+  height: 18px;
+  font-weight: bold;
+  border: 1px solid white;
+  color: white;
+}
+.onevone .card-main.paired .bottom .other span.lost {
+  background: red;
+}
+.onevone .card-main.paired .bottom .other span.on-going {
+  background: rgba(255, 255, 255, 0.359);
+}
+.onevone .card-main.paired .bottom .other span.won {
+  background: #1bcb27;
+  padding: 4px 10px;
+}
+.onevone .card-info {
+  padding-top: 8px;
+}
+.onevone .card-info span {
+  display: block;
+  font-size: 8px;
+  margin-bottom: 4px;
+}

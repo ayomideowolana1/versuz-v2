@@ -1,0 +1,57 @@
+@import "../fonts/stylesheet.css";
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-pilat {
+  font-family: Pilat Extended;
+}
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.border {
+  border: 1px solid;
+}
+.searchbar {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 18px 26px;
+}
+.searchbar * {
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: dmsans;
+  font-style: normal;
+}
+.searchbar input {
+  width: 210px;
+  padding: 10px 14px;
+  border: 1px solid #d9dadb;
+}
+.searchbar input:focus {
+  outline: none;
+}
+.searchbar button {
+  background-color: #5e57f2;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
