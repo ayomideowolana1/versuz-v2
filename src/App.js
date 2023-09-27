@@ -50,7 +50,7 @@ function App() {
     } 
   },[])
   return (
-    <div className="App" style={{ position: "relative" }}>
+    <div className="App" style={{ position: "relative",height: "100dvh" }}>
       <Routes>
         <Route path="*" element={<Navigate to={"/login"} />} />
         <Route path="/" element={<Navigate to={"/login"} />} />

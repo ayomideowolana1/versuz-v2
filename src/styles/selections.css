@@ -45,7 +45,7 @@ body {
 }
 .selections .selections-body {
   border-bottom: 0.0625rem solid #d9d9d9;
-  height: 73vh;
+  height: 73dvh;
   overflow-y: scroll;
   padding: 0.625rem 0rem;
   display: flex;

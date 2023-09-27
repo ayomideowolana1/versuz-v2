@@ -33,9 +33,13 @@
 html {
   background: #fff;
 }
+:root {
+  height: 100dvh;
+}
 body {
   padding: 0px;
   margin: 0px;
+  height: 100dvh;
   background: #FCFDFD;
 }
 .row {
