@@ -43,7 +43,7 @@ body {
   padding-left: 0px;
   margin-top: 0px;
 }
-html {
+:root {
   background: #d3ff58;
 }
 .login {
