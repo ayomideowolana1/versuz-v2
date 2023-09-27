@@ -86,7 +86,7 @@ function InPageBack(props) {
 function TicketIcon() {
   const ticket = useSelector((state) => state.ticket);
   return (
-    <Link to="/games">
+    <Link to="/games" className="ticket-icon-link">
       <div className="ticket-icon">
         <div className="number">0</div>
         <svg

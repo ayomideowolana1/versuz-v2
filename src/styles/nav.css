@@ -43,6 +43,9 @@ body {
   padding-left: 0px;
   margin-top: 0px;
 }
+html {
+  background: #fff;
+}
 nav {
   background: #fff;
   position: sticky;
@@ -72,11 +75,20 @@ nav .nav-body {
   height: auto !important;
 }
 nav .nav-body span {
-  font-size: 1.75rem;
+  font-size: 1.4rem;
   font-weight: bolder;
 }
 nav .nav-body img {
   width: 3rem;
+  transform: scale(0.8, 0.8);
+}
+nav .nav-body .ticket-icon-link {
+  margin-left: auto;
+  margin-right: 10px;
+  transform: scale(0.8, 0.8);
+}
+nav .nav-body .ticket-icon {
+  margin-left: auto;
 }
 nav .nav-body .ticket-icon .number {
   font-size: 0.875rem;

@@ -43,6 +43,9 @@ body {
   padding-left: 0px;
   margin-top: 0px;
 }
+html {
+  background: #d3ff58;
+}
 .login {
   position: relative;
   /* Define the animation */
@@ -218,7 +221,7 @@ body {
   border: 0.0625rem solid #D9DADB;
 }
 .login .auth-card p {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-family: dmsans;
   font-style: normal;
   margin: 1rem;

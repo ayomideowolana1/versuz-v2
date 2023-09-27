@@ -43,7 +43,7 @@ body {
   padding-left: 0px;
   margin-top: 0px;
 }
-nav {
+nav.new-game {
   background: transparent !important;
 }
 .new-game section * {
