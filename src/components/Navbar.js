@@ -253,7 +253,7 @@ export function GamesNav() {
 
 export function GameDetailsNav() {
   return (
-    <nav className="new-game" style={{ borderBottom: "none" }}>
+    <nav className="game-details" style={{ borderBottom: "none" }}>
       <section className="nav-header">
         <img src={logoWhite} alt="" />
       </section>

@@ -49,7 +49,7 @@
         img {
           width: 2.25rem;
           
-          background: #f2f2f2;
+          
         }
       }
     }
@@ -139,12 +139,12 @@
         .competiton-logo{
           width: 2.25rem;
           aspect-ratio: 1/1;
-          background:#f2f2f2 ;
+          
         }
         .back-to-competitions{
           width: 2.25rem;
           aspect-ratio: 1/1;
-          background:#f2f2f2 ;
+          
           
         }
       }
@@ -201,7 +201,7 @@
             font-weight: 700;
           }
           img{
-            background: #f2f2f2;
+            
             width: 1.5rem;
             aspect-ratio: 1/1;
             margin-right: .5rem;
@@ -214,29 +214,35 @@
 
   .game{
     .teams {
-      margin-top: 3.125rem;
+      margin-top: 2.125rem;
 
-      // margin-top: .6875rem;
       display: flex;
       width: 100%;
-      gap: 2.0625rem;
+      gap: .4rem;
       justify-content: center;
-      align-items: center;
+      
+      align-items: flex-start;
+      padding: 1rem;
       .team {
+        // border: .0625rem solid red;
+        flex: 1;
         display: flex;
         flex-direction: column;
         align-content: center;
         align-items: center;
         gap: .625rem;
-        flex: 1;
+        
+        
         span {
           display: block;
           font-weight: bold;
           font-size: .75rem;
+          
           max-width: 6.25rem;
           text-align: center;
           text-align: center;
           .font-dm-sans;
+          
         }
         img {
           width: 3.8125rem;
@@ -246,14 +252,15 @@
       .x {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: center;
         gap: .9375rem;
         height: 100%;
         pointer-events: none;
+        gap: .5rem;
         // border: .0625rem solid red;
         img{
-          width: 3.4375rem;
+          width: 2.4375rem;
           height: auto;
         }
         span {
@@ -261,6 +268,10 @@
           font-size: 0.7rem;
           font-weight: 700;
           .font-dm-sans;
+          &.league{
+            font-size: .65rem;
+
+          }
         }
       }
     }
@@ -271,18 +282,22 @@
         margin-bottom: .5rem;
         margin-left: 1rem;
         font-size: .75rem;
+        color: #8C8F92;
+        font-weight: 700;
       }
 
       display: grid;
       gap: .75rem;
 
-      .odd{
-        // border: .0625rem solid red;
-      }
+      
       
       .options{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        &.three{
+          grid-template-columns: 1fr 1fr 1fr;
+
+        }
         gap: .5rem;
         .option{
           .font-dm-sans;
@@ -306,7 +321,7 @@
             // border: .0625rem solid red;
             text-align: center;
             margin-top: .25rem;
-            font-size: .75rem;
+            font-size: .625rem;
             color: #8C8F92;
 
           }

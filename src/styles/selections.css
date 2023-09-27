@@ -43,21 +43,6 @@ body {
   padding-left: 0px;
   margin-top: 0px;
 }
-.selections .count {
-  display: inline-block;
-  width: 2.25rem;
-  aspect-ratio: 1/1;
-  background: #e22e38;
-  color: white;
-  border: 0.1406rem solid #fff;
-  font-size: 1rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: dmsans;
-  font-style: normal;
-}
 .selections .selections-body {
   border-bottom: 0.0625rem solid #d9d9d9;
   height: 73vh;

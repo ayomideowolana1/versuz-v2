@@ -47,21 +47,6 @@ body {
   height: 100vh;
   position: relative;
 }
-.join .count {
-  display: inline-block;
-  width: 2.25rem;
-  aspect-ratio: 1/1;
-  background: #e22e38;
-  color: white;
-  border: 0.1406rem solid #fff;
-  font-size: 1rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: dmsans;
-  font-style: normal;
-}
 .join .header {
   display: flex;
   align-items: center;

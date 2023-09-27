@@ -10,6 +10,9 @@ nav {
     .font-pilat;
   }  
   background: #fff;
+  &.game-details{
+    background: transparent;
+  }
   position: sticky;
   top: 0rem;
   border-bottom: .0625rem solid #F0F0F0;
@@ -34,9 +37,9 @@ nav {
     align-items: center;
     height: auto !important;
     // margin-top: auto;
-    span{
+    .text{
         // margin-right: auto;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: bolder;
 
     }
@@ -63,7 +66,7 @@ nav {
 
   &.new-game{
     .nav-body{
-      span{
+      & > span{
         margin: 0rem;
       }
     }
@@ -96,4 +99,22 @@ nav {
     width: 2.0844rem ;
     aspect-ratio: 1/1;
     margin-left: 1rem;
+}
+
+.count {
+  display: inline-block;
+  width: 2.25rem;
+  aspect-ratio: 1/1;
+  background: #e22e38;
+  color: white;
+  border: .1406rem solid #fff;
+  // box-shadow: 0rem 0rem 6.25rem .5625rem #E7473A;
+  font-size: .8rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .font-dm-sans;
+  font-weight: bold;
+  transform: scale(.9,.9);
 }
