@@ -4,8 +4,12 @@
   .font-pilat;
 }
 .tabs {
-  height: 48px;
-  margin-top: 10px;
+  position: sticky;
+  top: 10.6vh;
+  // height: 48px;
+  padding: 16px;
+  background:#fff ;
+  z-index: 900;
   
 
   display: flex;
@@ -32,13 +36,14 @@
 
 .tabs-body {
   padding: 8px 16px;
-  max-height: 77vh;
+  max-height: 80vh;
+  min-height: 80vh;
   overflow-y: scroll;
   border-bottom: 1px solid #f2f2f2;
   .cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 8px;
+    column-gap: 12px;
     row-gap: 16px;
   }
 }

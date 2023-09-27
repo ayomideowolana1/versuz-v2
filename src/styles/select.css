@@ -1,0 +1,328 @@
+@import "../fonts/stylesheet.css";
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-pilat {
+  font-family: Pilat Extended;
+}
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.border {
+  border: 1px solid;
+}
+html {
+  background: #fff;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #FCFDFD;
+}
+.row {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+}
+.select .count {
+  display: inline-block;
+  width: 2.25rem;
+  aspect-ratio: 1/1;
+  background: #e22e38;
+  color: white;
+  border: 0.1406rem solid #fff;
+  font-size: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: dmsans;
+  font-style: normal;
+}
+.select .region-cont {
+  overflow-y: scroll;
+  height: 89.4vh;
+  padding-top: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.select .region-cont .region {
+  padding: 0.5rem 2rem;
+  height: 3.25rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0rem 0.0625rem 0.125rem 0rem rgba(16, 24, 40, 0.05);
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+}
+.select .region-cont .region .inner {
+  pointer-events: none;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.select .region-cont .region .inner span {
+  font-family: dmsans;
+  font-style: normal;
+}
+.select .region-cont .region .inner img {
+  width: 2.25rem;
+  background: #f2f2f2;
+}
+.select .competitions .header {
+  padding: 1.125rem 2rem 2rem;
+  box-sizing: border-box;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.select .competitions .header span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.select .competitions .header button {
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.3125rem 0rem 0.4063rem 0rem;
+  justify-content: center;
+  border: none;
+  align-items: center;
+  background: #F5F5F5;
+}
+.select .competitions .body {
+  height: 78vh;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  padding: 0rem 1.25rem;
+  padding-bottom: 3.125rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: auto ;
+  gap: 0.75rem;
+  align-content: start;
+}
+.select .competitions .body .competition {
+  padding: 1rem 0.75rem;
+  border-radius: 0.5rem;
+  background: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+.select .competitions .body .competition img {
+  width: 2.3125rem;
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+.select .competitions .body .competition span {
+  font-family: dmsans;
+  font-style: normal;
+  font-size: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+.select .fixtures .fixtures-nav {
+  padding: 1rem 1rem 2rem;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-sizing: border-box;
+}
+.select .fixtures .fixtures-nav .row1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 0.75rem;
+}
+.select .fixtures .fixtures-nav .row1 .competiton-logo {
+  width: 2.25rem;
+  aspect-ratio: 1/1;
+  background: #f2f2f2;
+}
+.select .fixtures .fixtures-nav .row1 .back-to-competitions {
+  width: 2.25rem;
+  aspect-ratio: 1/1;
+  background: #f2f2f2;
+}
+.select .fixtures .fixtures-nav h3 {
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0rem;
+}
+.select .fixtures .fixtures-body {
+  height: 73vh;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+.select .fixtures .fixtures-body span {
+  font-family: dmsans;
+  font-style: normal;
+}
+.select .fixtures .fixtures-body .fixture {
+  padding: 0.5rem 1.875rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.select .fixtures .fixtures-body .fixture.selected {
+  background: #5E57F2;
+  color: #fff;
+}
+.select .fixtures .fixtures-body .fixture .date,
+.select .fixtures .fixtures-body .fixture .teams {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.select .fixtures .fixtures-body .fixture .date {
+  align-items: flex-end;
+  border-left: 0.0625rem solid #D9D9D9;
+}
+.select .fixtures .fixtures-body .fixture .date .day {
+  font-size: 0.75rem;
+}
+.select .fixtures .fixtures-body .fixture .date .time {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+.select .fixtures .fixtures-body .fixture .teams {
+  gap: 0.5rem;
+}
+.select .fixtures .fixtures-body .fixture .teams span {
+  font-weight: 700;
+}
+.select .fixtures .fixtures-body .fixture .teams img {
+  background: #f2f2f2;
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+  margin-right: 0.5rem;
+}
+.select .game .teams {
+  margin-top: 3.125rem;
+  display: flex;
+  width: 100%;
+  gap: 2.0625rem;
+  justify-content: center;
+  align-items: center;
+}
+.select .game .teams .team {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  flex: 1;
+}
+.select .game .teams .team span {
+  display: block;
+  font-weight: bold;
+  font-size: 0.75rem;
+  max-width: 6.25rem;
+  text-align: center;
+  font-family: dmsans;
+  font-style: normal;
+}
+.select .game .teams .team img {
+  width: 3.8125rem;
+  aspect-ratio: 1/1;
+}
+.select .game .teams .x {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.9375rem;
+  height: 100%;
+  pointer-events: none;
+}
+.select .game .teams .x img {
+  width: 3.4375rem;
+  height: auto;
+}
+.select .game .teams .x span {
+  pointer-events: none;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: dmsans;
+  font-style: normal;
+}
+.select .game .body {
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+.select .game .body p {
+  font-family: dmsans;
+  font-style: normal;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+  font-size: 0.75rem;
+}
+.select .game .body .options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+.select .game .body .options .option {
+  font-family: dmsans;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+}
+.select .game .body .options .option button.in-ticket {
+  background: #5E57F2;
+  color: white;
+}
+.select .game .body .options .option button {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: #272566;
+  background: #F5F5F5;
+  font-size: 0.875rem;
+}
+.select .game .body .options .option span {
+  text-align: center;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #8C8F92;
+}
+.select .game .body .options .option span,
+.select .game .body .options .option button {
+  font-family: dmsans;
+  font-style: normal;
+  font-weight: 700;
+}

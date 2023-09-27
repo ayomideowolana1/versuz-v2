@@ -1,0 +1,82 @@
+@import "./tools.less";
+
+.wallet-body {
+  .amount {
+    margin-top: 2.125rem;
+    margin-bottom: 1.8125rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .buttons {
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    button {
+      width: 100%;
+      padding: .75rem;
+      border: none;
+      border-radius: 2rem;
+      font-weight: 500;
+      .font-dm-sans;
+      &.green{
+        background: #00D755;
+        color: white;
+      }
+      &.gray{
+        background: #F5F5F5;
+        color: #00D755;
+      }
+    }
+  }
+
+  .activity{
+    margin-top: 2.875rem;
+    h1{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+    }
+  }
+
+  .cashflow{
+    display: flex;
+    // border: .0625rem solid red;
+    gap: 1rem;
+    padding: .5rem 1rem;
+    .arrow{
+        padding: .5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        aspect-ratio: 1/1;
+        border-radius: .5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #FEEBEC;
+        svg{
+            width: 1.5rem;
+        }
+
+        &.green{
+            background: #E6FBEE;
+        }
+
+
+    }
+    .text{
+        p{
+            .font-dm-sans;
+            margin: 0rem;
+            font-size: 1rem;
+            font-weight: bold;
+            &.sm{
+                font-weight: 300;
+                font-size: .625rem;
+            }
+
+        }
+    }
+  }
+}

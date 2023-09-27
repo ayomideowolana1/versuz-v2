@@ -1,0 +1,111 @@
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.user-games {
+  margin-top: 2rem;
+}
+.user-games .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 2vh;
+}
+.user-games .top h2 {
+  margin: auto;
+  margin-left: 0px;
+  display: inline-block;
+}
+.user-games .top button {
+  background-color: #f32966;
+  color: white;
+  padding: 1.73vh;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  border: none;
+}
+.user-games .top button span {
+  display: inline-block;
+}
+.user-games .games {
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+.user-games .games .paired-game {
+  background: linear-gradient(180deg, #0682ef 0%, #094ed3 100%);
+  display: flex;
+  gap: 25px;
+  margin-top: 10px;
+  padding: 20px 30px;
+  max-width: 400px;
+  border-radius: 13.5px;
+  transform: scale(0.9);
+}
+.user-games .games .paired-game p {
+  margin-bottom: 0px;
+  font-size: 13px;
+}
+.user-games .games .paired-game .section {
+  flex: 1;
+  display: grid;
+  flex-direction: column;
+  align-content: space-between;
+  color: white;
+}
+.user-games .games .paired-game .section.two {
+  gap: 24px;
+}
+.user-games .games .paired-game .section.two p {
+  color: rgba(255, 255, 255, 0.63);
+}
+.user-games .games .paired-game .section.two .ongoing {
+  display: inline-block;
+  border-radius: 18.496px;
+  border: 1.321px solid #c0c0c0;
+  background: rgba(16, 16, 16, 0.37);
+  padding: 7px 14px;
+  margin-top: 5px;
+  transform: scale(0.8);
+}
+.user-games .games .paired-game .section .score {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+}
+.user-games .games .paired-game .section .score img {
+  background: white;
+  width: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0px;
+}
+.user-games .games .paired-game .section .score span {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.user-games .games .paired-game .section .payout h3 {
+  text-align: left;
+  color: rgba(255, 255, 255, 0.63);
+  font-size: 28px;
+  margin-bottom: 0px;
+}
+.user-games .games .paired-game .section .payout p {
+  color: rgba(255, 255, 255, 0.81);
+}

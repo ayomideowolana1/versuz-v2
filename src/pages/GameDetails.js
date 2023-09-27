@@ -14,7 +14,7 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function convertTo12HourFormat(time24) {
+export function convertTo12HourFormat(time24) {
   // Split the input time string into hours, minutes, and seconds
   const [hours, minutes] = time24.split(":").map(Number);
 
@@ -150,7 +150,7 @@ export default function Game() {
   // );
 
   const getGameData = async () => {
-    const url = `https://www.versuz.co/match/${id}`;
+    const url = `https://www.backend.versuz.co/match/${id}`;
     const config = {
       method: "GET",
       headers: {

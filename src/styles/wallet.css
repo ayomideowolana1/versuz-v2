@@ -1,0 +1,116 @@
+@import "../fonts/stylesheet.css";
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-pilat {
+  font-family: Pilat Extended;
+}
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.border {
+  border: 1px solid;
+}
+html {
+  background: #fff;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #FCFDFD;
+}
+.row {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+}
+.wallet-body .amount {
+  margin-top: 2.125rem;
+  margin-bottom: 1.8125rem;
+  font-size: 1.75rem;
+  font-weight: bold;
+  text-align: center;
+}
+.wallet-body .buttons {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+.wallet-body .buttons button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-family: dmsans;
+  font-style: normal;
+}
+.wallet-body .buttons button.green {
+  background: #00D755;
+  color: white;
+}
+.wallet-body .buttons button.gray {
+  background: #F5F5F5;
+  color: #00D755;
+}
+.wallet-body .activity {
+  margin-top: 2.875rem;
+}
+.wallet-body .activity h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+.wallet-body .cashflow {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+}
+.wallet-body .cashflow .arrow {
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  aspect-ratio: 1/1;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FEEBEC;
+}
+.wallet-body .cashflow .arrow svg {
+  width: 1.5rem;
+}
+.wallet-body .cashflow .arrow.green {
+  background: #E6FBEE;
+}
+.wallet-body .cashflow .text p {
+  font-family: dmsans;
+  font-style: normal;
+  margin: 0rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.wallet-body .cashflow .text p.sm {
+  font-weight: 300;
+  font-size: 0.625rem;
+}

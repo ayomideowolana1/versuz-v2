@@ -1,13 +1,18 @@
 // one v one
 @import "./tools.less";
 
+a{
+  text-decoration: none;
+  
+}
+
 .onevone {
   .card-main {
     width: 100%;
     aspect-ratio: 1/0.86;
-    border-radius: 16px;
+    border-radius: 1rem;
     background: @blue-gradient;
-    padding: 12px 16px;
+    padding: .75rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -25,7 +30,7 @@
       justify-content: space-between;
       align-items: center;
       img {
-        width: 48px;
+        width: 3rem;
         aspect-ratio: 1/1;
       }
       span {
@@ -33,7 +38,7 @@
       }
       .name {
         color: white;
-        font-size: 14px;
+        font-size: .875rem;
         font-weight: 500;
       }
     }
@@ -46,10 +51,10 @@
         color: white;
         opacity: 0.63;
         .title {
-          font-size: 6px;
+          font-size: .375rem;
         }
         .value {
-          font-size: 10px;
+          font-size: .625rem;
           font-weight: bold;
         }
       }
@@ -57,12 +62,13 @@
         display: flex;
         justify-content: flex-end;
         button{
-
-            font-size: 6px;
-            height: 24px;
-            padding: 2px 10px;
+            .font-dm-sans;
+            font-size: .5rem;
+            width: 60%;
+            height: 1.5rem;
+            // padding: .125rem .625rem;
             border: none;
-            border-radius: 7.7px;
+            border-radius: .4813rem;
             background: white;
             color: #1570ef;
     
@@ -74,13 +80,13 @@
     &.paired {
       .center {
         img {
-          width: 32px;
+          width: 2rem;
         }
       }
       .bottom {
           .amount{
             .value{
-                font-size: 8px;
+                font-size: .5rem;
                 color: white;
                 opacity: 1;
             }
@@ -92,12 +98,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 4px 10px;
-            border-radius: 50px;
-            font-size: 7px;
-            height: 18px;
+            padding: .25rem .625rem;
+            border-radius: 3.125rem;
+            font-size: .4375rem;
+            height: 1.125rem;
             font-weight: bold;
-            border: 1px solid white;
+            border: .0625rem solid white;
             color: white;
             &.lost {
               background: red;
@@ -107,7 +113,7 @@
             }
             &.won {
                 background:rgb(27, 203, 39);
-                padding: 4px 10px;
+                padding: .25rem .625rem;
               }
           }
         }
@@ -115,11 +121,13 @@
     }
   }
   .card-info {
-    padding-top: 8px;
+    padding-top: .5rem;
     span {
+      color: #00070D;
+      .font-dm-sans;
       display: block;
-      font-size: 8px;
-      margin-bottom: 4px;
+      font-size: .5rem;
+      margin-bottom: .25rem;
     }
   }
 }

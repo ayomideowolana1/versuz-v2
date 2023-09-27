@@ -1,29 +1,42 @@
 @import "./tools.less";
 
+nav{
+  background: transparent !important;
+  &.transparent{
+  }
+}
 .new-game {
+
   section {
     * {
       .font-pilat;
     }
 
-    h3 {
-      font-size: 20px;
-      font-weight: 700;
-      text-align: center;
-      margin-top: 24px;
+    img.cup{
+      transform: scale(.8,.8);
+      // margin-left: -10px;
     }
 
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+
+
     .choices {
-      margin-top: 16px;
+      margin-top: 1rem;
       .choice {
-        height: 162px;
-        max-width: 343px;
+        height: 10.125rem;
+        max-width: 21.4375rem;
         margin: auto;
-        margin-bottom: 24px;
-        border-radius: 16px;
-        padding: 24px;
+        margin-bottom: 1.5rem;
+        border-radius: 1rem;
+        padding: 1.5rem;
         display: flex;
-        gap: 24px;
+        gap: 1.5rem;
         color: white;
         &.onevone{
             background: @blue-gradient;
@@ -43,11 +56,11 @@
           flex-direction: column;
           justify-content: space-between;
           h1 {
-            font-size: 24px;
+            font-size: 1.4rem;
             font-weight: bold;
           }
           p {
-            font-size: 12px;
+            font-size: .75rem;
             margin: none;
           }
         }

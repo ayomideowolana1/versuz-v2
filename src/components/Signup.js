@@ -7,17 +7,44 @@ import closedEye from "../images/closed-eye.svg";
 import upload from "../images/image-upload.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpAsync } from "../redux/slices/authSlice";
+import { Dots } from "./Login";
 
 const getNumbers = (string) => {
   return string.replace(/[^0-9]/g, "");
 };
 
+function validatePassword(password) {
+  const errors = [];
+
+  // Check for at least 1 uppercase letter
+  if (!/[A-Z]/.test(password)) {
+    errors.push("Password must contain at least 1 uppercase letter.");
+  }
+
+  // Check for at least 1 lowercase letter
+  if (!/[a-z]/.test(password)) {
+    errors.push("Password must contain at least 1 lowercase letter.");
+  }
+
+  // Check for at least 1 special character that isn't <, >, or /
+  if (!/[@$!%*?&^]/.test(password)) {
+    errors.push("Password must contain at least 1 special character (@, $, !, %, *, ?, &, or ^).");
+  }
+
+  // Check for a minimum length of 8 characters
+  if (password.length < 8) {
+    errors.push("Password must be at least 8 characters long.");
+  }
+
+  return errors;
+}
+
 export default function Signup() {
   const dispatch = useDispatch()
-  const {loading,isErr} = useSelector(state => state.auth.signup)
+  // const {loading,isErr} = useSelector(state => state.auth.signup)
   const navigate = useNavigate()
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])([A-Za-z\d@$!%*?&.]){8,}$/;
+  // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])([A-Za-z\d@$!%*?&.]){8,}$/;
+  const passwordRegex = /^([A-Za-z\d@$!%*?&.]){8,}$/;
   const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
 
   const [viewPassword, setViewPassword] = useState({
@@ -27,11 +54,14 @@ export default function Signup() {
   const [view, setView] = useState("one");
   const [emailValid, setEmailValid] = useState(false);
   const [emailRegistered, setEmailRegistered] = useState(false);
+  const [usernameRegistered, setUsernameRegistered] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(true);
-  const [passwordStrong, setPasswordStrong] = useState(false);
+  const [passwordErrors, setPasswordErrors] = useState([]);
   const [phoneComplete, setPhoneComplete] = useState(false);
   const [form1Complete, setForm1Complete] = useState(false);
   const [form2Complete, setForm2Complete] = useState(false);
+
+  const [loading, setLoading] = useState(false);
 
   const [base64Image, setBase64Image] = useState("");
   const [fullname, setFullName] = useState("");
@@ -77,11 +107,15 @@ export default function Signup() {
         setUser({ ...user, phone_number: getNumbers(value) });
         break;
       case "pass1":
-        passwordRegex.test(value)
-          ? setPasswordStrong(true)
-          : setPasswordStrong(false);
+      setPasswordErrors([])  
+      let errors = validatePassword(value)
+      setUser({ ...user, password: value });
+      setPasswordErrors(errors)  
         
-        setUser({ ...user, password: value });
+        // passwordRegex.test(value)
+        //   ? setPasswordStrong(true)
+        //   : setPasswordStrong(false);
+        
         break;
       case "pass2":
         setUser({ ...user, password2: value });
@@ -91,6 +125,7 @@ export default function Signup() {
         setUser({ ...user, full_name: value });
         break;
         case "username":
+          setUsernameRegistered(false)
           const modifiedString = value.replace(/ /g, "_");
           setUsername(modifiedString)
         setUser({ ...user, username: modifiedString.toLowerCase() });
@@ -128,7 +163,7 @@ export default function Signup() {
   }, [user]);
 
   useEffect(() => {
-    if ((emailValid && passwordStrong && user.phone_number && passwordMatch)) {
+    if ((emailValid && user.password && passwordErrors.length == 0 && user.phone_number && passwordMatch)) {
       setForm1Complete(true);
     } else {
       setForm1Complete(false);
@@ -144,6 +179,8 @@ export default function Signup() {
 
   const signup = async ()=>{
 
+    setLoading(true)
+
   const url = process.env.REACT_APP_AUTH_ENDPOINT_REGISTER;
   const config = {
     method: "POST",
@@ -154,19 +191,26 @@ export default function Signup() {
     body: JSON.stringify(user),
   };
 
+
+
   const response = await fetch(url, config)
-    .then((data) => data.json())
-    .catch((err) => err);
-
-    console.log(response)
-
-    if(response.success){
+  .then((data) => data.json())
+  .catch((err) => err);
+  
+  console.log(response)
+  
+  setLoading(false)
+  if(response.success){
       // navigate to verify
-      navigate("/verify-account")
+      navigate(`/verify-account`)
     }else{
-      // show error
-      setEmailRegistered(true)
-      setView("one")
+      // show error { success: false, message: "Username already exists" }
+      if(response.message == "Username already exists"){
+        setUsernameRegistered(true)
+      }else{
+        setEmailRegistered(true)
+        setView("one")
+      }
       
     }
 
@@ -246,7 +290,7 @@ export default function Signup() {
                 Password
               </label>
               <div
-                className={`input-cont ${!passwordStrong && "err"}`}
+                className={`input-cont ${passwordErrors.length > 0 && "err"}`}
                 onClick={() => {
                   pass1Ref.current.focus();
                 }}
@@ -272,9 +316,9 @@ export default function Signup() {
                   alt=""
                 />
               </div>
-              {!passwordStrong && (
-                <p className="err-message">Enter a stronger password</p>
-              )}
+              {passwordErrors.map((err,index)=>{
+                return <p key={index} className="err-message">{err}</p>
+              })}
             </div>
 
             <div className=" col-12 ">
@@ -393,7 +437,7 @@ export default function Signup() {
                 }}
               >
                 <input
-                  type="tel"
+                  type="text"
                   placeholder="Odogwu Spender aka Spend it!"
                   value={user.full_name}
                   id="fullname"
@@ -424,6 +468,9 @@ export default function Signup() {
                   autoFocus={false}
                 />
               </div>
+              {usernameRegistered && (
+                <p className="err-message">Sorry this username has already been taken</p>
+              )}
             </div>
 
             <div className=" col-12 ">
@@ -450,9 +497,9 @@ export default function Signup() {
 
             <button 
             onClick={signup} 
-            className={`signup ${form2Complete ? "" : "disabled"}`}
-              disabled={form2Complete ? false : true}
-            >Start Playin'</button>
+            className={`signup ${form2Complete ? "" : "disabled"} ${loading ? "disabled" : ""}`}
+              disabled={form2Complete || loading ? false : true}
+            >{loading ? <Dots text="Creating account" /> : "Start Playin'"}</button>
           </form>
         )
         }

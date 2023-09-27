@@ -30,46 +30,74 @@
 .border {
   border: 1px solid;
 }
+html {
+  background: #fff;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #FCFDFD;
+}
+.row {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+}
 .login {
   position: relative;
+  /* Define the animation */
   background: url("../images/mobile-auth-bg.svg");
   overflow-y: scroll;
   background-size: cover;
-  padding: 17px;
+  padding: 1.0625rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
 .login .home-image {
-  margin-bottom: 40px;
-  margin-top: 40px;
+  margin-bottom: 2.5rem;
+  margin-top: 2.5rem;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  /* Dot is visible */
+  50% {
+    opacity: 0;
+  }
+  /* Dot is invisible */
+  100% {
+    opacity: 1;
+  }
+  /* Dot is visible again */
 }
 .login * {
   font-family: Pilat Extended;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .login .auth-card {
-  margin-bottom: 88px;
-  padding: 24px 20px;
+  margin-bottom: 5.5rem;
+  padding: 1.5rem 1.25rem;
   width: 100%;
   background-color: white;
-  box-shadow: 0px 8px 8px -4px rgba(20, 27, 32, 0.03), 0px 20px 24px -4px rgba(20, 27, 32, 0.08);
-  border-radius: 12px;
+  box-shadow: 0rem 0.5rem 0.5rem -0.25rem rgba(20, 27, 32, 0.03), 0rem 1.25rem 1.5rem -0.25rem rgba(20, 27, 32, 0.08);
+  border-radius: 0.75rem;
 }
 .login .auth-card.default {
-  margin-top: 60px;
+  margin-top: 3.75rem;
 }
 .login .auth-card.signup {
-  margin-bottom: 0px;
+  margin-bottom: 0rem;
 }
 .login .auth-card h1 {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: bold;
   text-align: center;
 }
 .login .auth-card h1.sm {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 .login .auth-card h1.left {
   text-align: left;
@@ -77,20 +105,20 @@
 .login .auth-card .blocks {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 5px;
-  margin-top: 10px;
+  column-gap: 0.3125rem;
+  margin-top: 0.625rem;
 }
 .login .auth-card .blocks .block {
-  height: 4px;
+  height: 0.25rem;
   background: #efeefe;
 }
 .login .auth-card .blocks .block.active {
   background: #5e57f2;
 }
 .login .auth-card form {
-  margin-top: 36px;
+  margin-top: 2.25rem;
   display: grid;
-  row-gap: 24px;
+  row-gap: 1.5rem;
   position: relative;
 }
 .login .auth-card form label {
@@ -104,19 +132,19 @@
   font-style: normal;
 }
 .login .auth-card form .input-cont {
-  border-radius: 8px;
-  border: 1px solid #d9dadb;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #d9dadb;
   background: #fff;
   width: 100%;
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-  padding: 10px 14px;
+  box-shadow: 0rem 0.0625rem 0.125rem 0rem rgba(16, 24, 40, 0.05);
+  padding: 0.625rem 0.875rem;
   display: flex;
 }
 .login .auth-card form .input-cont.err {
-  border: 1px solid #FCA1A6;
+  border: 0.0625rem solid #FCA1A6;
 }
 .login .auth-card form .input-cont input {
-  padding: 0px;
+  padding: 0rem;
   border: none;
   width: 100%;
   font-size: 1rem;
@@ -132,26 +160,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 35px;
-  padding-bottom: 35px;
+  padding-top: 2.1875rem;
+  padding-bottom: 2.1875rem;
 }
 .login .auth-card .form2 .img-cont img {
-  width: 150px;
-  height: 150px;
+  width: 9.375rem;
+  height: 9.375rem;
   aspect-ratio: 1/1;
   object-fit: fill;
   border-radius: 50%;
 }
 .login .auth-card .form2 .img-cont h3 {
   font-weight: bold;
-  margin-top: 8px;
-  font-size: 18px;
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
   font-family: dmsans;
   font-style: normal;
 }
 .login .auth-card .form-check-label {
   color: #1f252a;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .login .auth-card .form-check-label a {
   text-decoration: none;
@@ -167,19 +195,19 @@
   border: none;
 }
 .login .auth-card button {
-  margin-top: 36px;
+  margin-top: 2.25rem;
   font-family: dmsans;
   font-style: normal;
   width: 100%;
   background: #fe4e40;
   border: none;
-  padding: 16px;
+  padding: 1rem;
   font-weight: bold;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 .login .auth-card button.signup {
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 .login .auth-card button.disabled {
   background: #595E62;
@@ -187,20 +215,20 @@
 .login .auth-card button.white {
   background: white ;
   color: black ;
-  border: 1px solid #D9DADB;
+  border: 0.0625rem solid #D9DADB;
 }
 .login .auth-card p {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-family: dmsans;
   font-style: normal;
-  margin: 16px;
+  margin: 1rem;
   color: #595e62;
   text-align: center;
 }
 .login .auth-card p.err-message {
   text-align: left;
   color: #FCA1A6;
-  margin: 5px;
+  margin: 0.3125rem;
 }
 .login .auth-card p.purple {
   color: #564fdc;
@@ -210,8 +238,8 @@
 }
 .login .auth-card p.left {
   text-align: justify;
-  margin-left: 0px;
-  margin-bottom: 24px;
+  margin-left: 0rem;
+  margin-bottom: 1.5rem;
 }
 .login .auth-card p a {
   color: #595e62;
@@ -225,10 +253,14 @@
 .login .auth-card .main-img {
   display: block;
   margin: auto;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 .login .auth-card .divider {
-  border-top: 1px solid #e4e7ec;
-  margin-left: -16px;
+  border-top: 0.0625rem solid #e4e7ec;
+  margin-left: -1rem;
   width: 110%;
+}
+.loader {
+  font-family: dmsans;
+  font-style: normal;
 }

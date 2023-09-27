@@ -4,6 +4,7 @@ import versuz from "../images/full-logo-dark.svg";
 import mailSent from "../images/mail-sent.svg";
 import closedEye from "../images/closed-eye.svg";
 import openEye from "../images/open-eye.svg";
+import { useLocation } from 'react-router-dom';
 
 import "../styles/login.css";
 
@@ -12,6 +13,8 @@ export default function PasswordReset() {
   const [emailSent, setEmailSent] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [emailNotRegistered, setEmailNotRegistered] = useState(false);
+  const [errMessage, setErrMessage] = useState("");
+
   const [accountNotFound, setAccountNotFound] = useState(false);
 
   const [email, setEmail] = useState("");
@@ -26,9 +29,9 @@ export default function PasswordReset() {
   };
 
   const submit = async () => {
-    // https://www.versuz.co/accounts/find_account/${email}
+    // https://www.backend.versuz.co/accounts/find_account/${email}
 
-    const url = `https://www.versuz.co/accounts/find_account/${email}`;
+    const url = `https://www.backend.versuz.co/accounts/find_account/${email}`;
     const config = {
       method: "GET",
       headers: {
@@ -50,6 +53,7 @@ export default function PasswordReset() {
       // navigate("/verify-account")
     } else {
       // show error
+      setErrMessage(response.message);
       setEmailNotRegistered(true);
       // setView("one")
     }
@@ -91,7 +95,7 @@ export default function PasswordReset() {
             </div>
             {emailNotRegistered && (
               <p style={{ textAlign: "left", color: "#F8333D", margin: "0px" }}>
-                This email is not registered!
+                {errMessage}
               </p>
             )}
           </form>
@@ -175,7 +179,7 @@ export function PasswordResetLink() {
 
   const getTokenValidity = async () => {
     setLoading(true);
-    const url = `https://www.versuz.co/accounts/reset-password/${id}`;
+    const url = `https://www.backend.versuz.co/accounts/reset-password/${id}`;
     const config = {
       method: "GET",
       headers: {
@@ -249,7 +253,7 @@ export function PasswordResetLink() {
 
   const reset = async () => {
     // setLoading(true);
-    const url = `https://www.versuz.co/accounts/reset-password/${id}`;
+    const url = `https://www.backend.versuz.co/accounts/reset-password/${id}`;
     const config = {
       method: "POST",
       headers: {
@@ -388,8 +392,8 @@ export function PasswordResetLink() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M10.0316 18.2651C9.70812 18.0063 9.65568 17.5343 9.91444 17.2109L13.5396 12.6794L9.91444 8.14794C9.65568 7.82449 9.70812 7.35252 10.0316 7.09376C10.355 6.83501 10.827 6.88745 11.0857 7.21089L15.0857 12.2109C15.3049 12.4848 15.3049 12.874 15.0857 13.1479L11.0857 18.1479C10.827 18.4714 10.355 18.5238 10.0316 18.2651Z"
                   fill="#5E57F2"
                 />
@@ -436,8 +440,8 @@ export function PasswordResetLink() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M10.0316 18.2651C9.70812 18.0063 9.65568 17.5343 9.91444 17.2109L13.5396 12.6794L9.91444 8.14794C9.65568 7.82449 9.70812 7.35252 10.0316 7.09376C10.355 6.83501 10.827 6.88745 11.0857 7.21089L15.0857 12.2109C15.3049 12.4848 15.3049 12.874 15.0857 13.1479L11.0857 18.1479C10.827 18.4714 10.355 18.5238 10.0316 18.2651Z"
                   fill="#5E57F2"
                 />
@@ -462,42 +466,80 @@ export function PasswordResetLink() {
 }
 
 export function VerifyAccount() {
-  const emailRef = useRef(null);
+  const pinRef = useRef(null);
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [pin, setPin] = useState("");
+  const [pinInvalid, setPinInvalid] = useState(false);
   const { id } = useParams();
 
-  useEffect(() => {
-    // check id validity
-  }, []);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const email = queryParams.get('data');
+
+  const validate = async() => {
+    const url = `https://www.backend.versuz.co/accounts/verify_email/${pin}`;
+    const config = {
+      method: "GET",
+      headers: {
+        reactkey: process.env.REACT_APP_AUTH_KEY,
+        "Content-Type": "application/json",
+      },
+      // body: JSON.stringify({pin:pin}),
+    };
+
+    const response = await fetch(url, config)
+      .then((data) => data.json())
+      .catch((err) => err);
+
+    console.log(response);
+
+    if (response.success) {
+      // setView("two");
+      // navigate to verify
+      navigate("/explore")
+    } else {
+      // show error
+      setPinInvalid(true);
+      // setView("one")
+    }
+  }
   return (
     <div className="login container-fluid min-vh-100">
       <img className="home-image" src={versuz} alt="" />
       <div className="auth-card default">
         <img className="main-img" src={mailSent} alt="" />
         <h1 className="sm left">Verify your account</h1>
-        <p
+        {!pinInvalid && <p
           className="left dark"
           style={{ fontSize: "16px", textAlign: "left" }}
         >
-          We have sent verification code sent to Odogwu@cashout.com
+          Enter the verification code sent to your email
+        </p>}
+
+        {
+          pinInvalid && <p
+          className="left"
+          style={{ fontSize: "16px", textAlign: "left",color:"red" }}
+        >
+          Invalid Pin! Try again
         </p>
+        }
         <form action="">
           <div
             className="input-cont"
             onClick={() => {
-              // emailRef.current.focus();
+              pinRef.current.focus();
             }}
           >
             <input
               type="text"
               placeholder="Enter verification code"
-              value={email}
+              value={pin}
               // id="username"
               onChange={(e) => {
-                setEmail(e.target.value);
+                setPin(e.target.value);
               }}
-              ref={emailRef}
+              ref={pinRef}
               autoFocus={false}
             />
           </div>
@@ -515,7 +557,7 @@ export function VerifyAccount() {
               <button className="white">Cancel</button>
             </div>
             <div className="col-6">
-              <button>Verify</button>
+              <button onClick={validate}>Verify</button>
             </div>
           </div>
         </div>

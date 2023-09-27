@@ -2,9 +2,10 @@ import React from "react";
 import { NewGameNav } from "../components/Navbar";
 import "../styles/searchbar.css";
 import "../styles/new-game.css";
-import swords from "../images/1v1-swords.svg"
-import stadium from "../images/stadium.svg"
-import cup from "../images/cup.svg"
+import swords from "../images/1v1-swords.svg";
+import stadium from "../images/stadium.svg";
+import cup from "../images/cup.svg";
+import { Link } from "react-router-dom";
 
 function SearchBar() {
   return (
@@ -26,38 +27,43 @@ function Text(props) {
   );
 }
 
-
-
 export default function NewGame() {
   return (
     <div className="new-game">
       <NewGameNav />
-      <SearchBar />
+      {/* <SearchBar /> */}
       <section>
         <h3>Create Game</h3>
         <div className="choices">
-          <div className="choice onevone">
-            <Text
-              mainText={"1v1"}
-              subText={"Connect with a friend or pair with someone"}
-            />
-            <img src={swords} alt="" />
+          <Link to="/select/new-1v1">
+            <div className="choice onevone">
+              <Text
+                mainText={"1v1"}
+                subText={"Connect with a friend or pair with someone"}
+              />
+              <img src={swords} alt="" />
+            </div>
+          </Link>
 
-          </div>
-          <div className="choice pool">
-            <Text
-              mainText={"Pool"}
-              subText={"Connect with a friend or pair with someone"}
-            />
-            <img src={stadium} alt="" />
-          </div>
-          <div className="choice tournament">
-            <Text
-              mainText={"Tournament"}
-              subText={"Connect with a friend or pair with someone"}
-            />
-            <img src={cup} alt="" />
-          </div>
+          <Link to="/select/new-pool">
+            <div className="choice pool">
+              <Text
+                mainText={"Pool"}
+                subText={"Connect with a friend or pair with someone"}
+              />
+              <img src={stadium} alt="" />
+            </div>
+          </Link>
+
+          <Link to="/select/new-tournament">
+            <div className="choice tournament">
+              <Text
+                mainText={"Tournament"}
+                subText={"Connect with a friend or pair with someone"}
+              />
+              <img className="cup" src={cup} alt="" />
+            </div>
+          </Link>
         </div>
       </section>
     </div>

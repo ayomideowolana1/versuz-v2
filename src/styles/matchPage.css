@@ -1,0 +1,185 @@
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+* {
+  font-family: syne;
+}
+.page-header {
+  background: linear-gradient(180deg, #0682ef 0%, #094ed3 100%);
+  padding: 20px;
+  height: 30vh;
+}
+.page-header h1 {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  opacity: 0.4;
+  font-weight: 600;
+}
+.page-header .score-board {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 37px;
+}
+.page-header .user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.page-header .user h1 {
+  opacity: 1;
+}
+.page-header .user img {
+  width: 76px;
+  aspect-ratio: 1/1;
+  background-color: white;
+  border-radius: 50%;
+}
+.page-header .user .name {
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 500;
+}
+.page-header .user .games-left {
+  color: white;
+  font-weight: 400;
+  opacity: 0.6;
+}
+.body {
+  height: 60vh;
+  border-radius: 8px 8px 0px 0px;
+  margin-top: -10px;
+  background: #fff;
+  padding: 20px;
+}
+.body .tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.body .tabs span {
+  padding: 10px 20px;
+  width: 100px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+}
+.body .tabs span.active {
+  color: #fff;
+  background: black;
+}
+.body .stat {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.body .stat p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #5e5656;
+}
+.body .line {
+  display: flex;
+  width: 100%;
+  margin-top: 5px;
+}
+.body .line div {
+  height: 3px;
+}
+.body .line div.a {
+  background: #5a29ff;
+}
+.body .line div.b {
+  background: #8dff92;
+}
+.body .main h4 {
+  margin-top: 20px;
+}
+.body .main .forecasts {
+  display: flex;
+  overflow-x: scroll;
+  gap: 15px;
+  padding: 10px;
+}
+.forecast {
+  border: 1px solid #f2f2f2;
+  border-radius: 8px;
+  min-width: 50vw;
+  padding: 15px;
+  flex: 1;
+}
+.forecast .top {
+  display: flex;
+  justify-content: space-between;
+}
+.forecast .top span {
+  font-size: 8px;
+}
+.forecast .teams {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.forecast .teams .team {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.forecast .teams .team img {
+  width: 35px;
+  aspect-ratio: 1/1;
+}
+.forecast .teams .team span {
+  font-size: 9px;
+  font-weight: bold;
+}
+.forecast .teams .team span.name {
+  font-size: 8px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+.forecast .end {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.forecast .end span {
+  font-weight: 500;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 8px;
+}
+.forecast .end span.selection {
+  width: 45%;
+  background: #0682EF;
+  color: white;
+  border-radius: 5px;
+}
+.forecast .end span.status {
+  background: #C0C0C0;
+  color: white;
+  border-radius: 50px;
+}

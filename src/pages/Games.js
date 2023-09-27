@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GamesNav } from "../components/Navbar";
 import "../styles/games.css";
 import "../styles/tabs.css";
 import image from "../images/games-empty.svg";
-
 import { OneVOneCard } from "../components/cards";
+import { setBetCodes, setLoading } from "../redux/slices/gamesSlice";
+
+
+import { useDispatch, useSelector } from "react-redux";
+
+import logo from "../images/versuz-icon.svg"
+import "../styles/loading.css"
+
+ const Loading =()=>{
+  return (
+      
+    <div className="loading">
+
+      <img src={logo} alt="" />
+
+      {/* <h3>Loading... </h3> */}
+      </div>
+    
+  )
+}
 
 function GamesEmpty() {
   return (
@@ -17,8 +36,13 @@ function GamesEmpty() {
 }
 
 function GamesNotEmpty() {
-  const [pairedGames, setPairedGames] = useState(["", "", "", ""]);
-  const [unpairedGames, setUnpairedGames] = useState(["", "", "", ""]);
+  const pairedGames = useSelector(state => state.games.paired)
+  const unpairedGames = useSelector(state => state.games.unpaired)
+
+  useEffect(()=>{
+    console.log(pairedGames,unpairedGames)
+  },[])
+  
 
   return (
     <div className="games-not-empty">
@@ -59,12 +83,11 @@ function GamesNotEmpty() {
           role="tabpanel"
           aria-labelledby="pills-home-tab "
         >
-            <div className="cards">
-
+          <div className="cards">
             {pairedGames.map((game, index) => {
-                return <OneVOneCard key={index} paired={true} />;
+              return <OneVOneCard key={index} paired={true} data={game} />;
             })}
-            </div>
+          </div>
         </div>
         <div
           className="tab-pane fade"
@@ -72,11 +95,11 @@ function GamesNotEmpty() {
           role="tabpanel"
           aria-labelledby="pills-profile-tab"
         >
-            <div className="cards">
-            {pairedGames.map((game, index) => {
-                return <OneVOneCard key={index} paired={false} userCard={true} />;
+          <div className="cards">
+            {unpairedGames.map((game, index) => {
+              return <OneVOneCard key={index} paired={false} userCard={true}  data={game} />;
             })}
-            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -85,11 +108,62 @@ function GamesNotEmpty() {
 
 export default function Games() {
   const [games, setGames] = useState(["", "", "", ""]);
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.games.loading);
+
+  const getUserGames = async () => {
+    const url = `https://www.backend.versuz.co/user/betcodes`;
+    dispatch(setLoading(true));
+
+    const config = {
+      method: "GET",
+      headers: {
+        reactkey: process.env.REACT_APP_AUTH_KEY,
+        "Content-Type": "application/json",
+        Authorization: `Token ${
+          JSON.parse(sessionStorage.getItem("vsrz")).token
+        }`,
+      },
+      // body: JSON.stringify(user),
+    };
+
+    const response = await fetch(url, config)
+      .then((data) => data.json())
+      .catch((err) => err);
+
+    console.log(response);
+
+    if (response.success) {
+      dispatch(
+        setBetCodes({
+          paired: response.paired_betcodes,
+          unpaired: response.unpaired_betcodes,
+        })
+      );
+    } else {
+    }
+    
+    dispatch(setLoading(false));
+  };
+
+  useEffect(() => {
+    getUserGames();
+    // console.log(JSON.stringify(sessionStorage.getItem("vsrz")))
+  }, []);
   return (
     <div className="games">
       <GamesNav />
 
-      {(games.length > 0 && <GamesNotEmpty />) || <GamesEmpty />}
+      {loading ? <Loading/>: 
+      <>
+      {games.length > 0  && !loading && <GamesNotEmpty /> || <GamesEmpty />}
+      </>
+      }
+      
+      
+
     </div>
   );
 }
+
+

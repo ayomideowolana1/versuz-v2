@@ -1,15 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./slices/authSlice";
-// import gamesReducer from "./slices/gamesSlice";
-// import selectReducer from "./slices/selectSlice";
-// import ticketReducer from "./slices/ticketSlice"
+import exploreReducer from "./slices/exploreSlice";
+import selectReducer from "./slices/selectSlice";
+import ticketReducer from "./slices/ticketSlice"
+import gamesReducer from "./slices/gamesSlice"
 
 
 export default configureStore({
   reducer: {
-    // ticket: ticketReducer,
+    ticket: ticketReducer,
     auth: authReducer,
-    // games: gamesReducer,
-    // select: selectReducer,
+    explore: exploreReducer,
+    select: selectReducer,
+    games: gamesReducer,
   },
 });

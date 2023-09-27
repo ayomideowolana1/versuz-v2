@@ -30,3 +30,16 @@
 .border {
   border: 1px solid;
 }
+html {
+  background: #fff;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #FCFDFD;
+}
+.row {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+}

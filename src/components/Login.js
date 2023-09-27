@@ -1,11 +1,49 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/login.css";
 import { useDispatch, useSelector } from "react-redux";
-import { loginAsync } from "../redux/slices/authSlice";
+import { loginAsync,setAuthenticated } from "../redux/slices/authSlice";
 import versuz from "../images/full-logo-dark.svg";
 import openEye from "../images/open-eye.svg";
 import closedEye from "../images/closed-eye.svg";
+
+
+
+
+
+export function Dots(props) {
+  const { text } = props;
+  const [dots, setDots] = useState({
+    current: "one",
+    one: true,
+    two: false,
+    three: false,
+  });
+  useEffect(() => {
+    setInterval(() => {}, 1000);
+  }, []);
+  return (
+    <span
+      className="loader"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        gap: "5px",
+        alignItems: "center",
+      }}
+    >
+      {" "}
+      <span
+        className="spinner-border spinner-border-sm"
+        role="status"
+        aria-hidden="true"
+      >
+        {" "}
+      </span>{" "}
+      {text || "Checking"}{" "}
+    </span>
+  );
+}
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -16,11 +54,14 @@ export default function Login() {
   const [user, setUser] = useState({ username: "", password: "" });
   const [viewPassword, setViewPassword] = useState(false);
   const [loginErr, setLoginErr] = useState(false);
-  const [loadind, setLading] = useState(false);
-  const login = useSelector((state) => state.auth.login);
+  const [errMessage, setErrMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+
 
   const handleChange = (e) => {
     const { id, value } = e.target;
+    setLoginErr(false);
     id == "username"
       ? setUser({ ...user, username: value })
       : setUser({ ...user, password: value });
@@ -28,7 +69,10 @@ export default function Login() {
 
   const handleSubmit = async () => {
     // dispatch(loginAsync(user));
+    
+    setLoading(true);
     const url = process.env.REACT_APP_AUTH_ENDPOINT_LOGIN;
+
     const config = {
       method: "POST",
       headers: {
@@ -44,30 +88,34 @@ export default function Login() {
 
     // console.log(response);
 
-    if(response.success){
-      navigate('/explore')
+    setLoading(false);
+
+    if (response.success) {
+      dispatch(setAuthenticated({status:true,token:response.token}))
+      navigate("/explore");
 
       const authObj = JSON.stringify({
         username: response.user.username,
         token: response.token,
+        hash: ""
       });
       sessionStorage.setItem("vsrz", authObj);
-    }else{
-      setLoginErr(true)
+    } else {
+      setLoginErr(true);
+      setErrMessage(response.message);
     }
-
   };
 
-  useEffect(() => {
-    console.log(login);
-  }, [login]);
+  
 
   return (
     <div className="login  container-fluid min-vh-100">
       <img className="home-image" src={versuz} alt="" />
       <div className="auth-card default">
         <h1>Login</h1>
-        {loginErr && <p style={{color:"#F8333D"}}>Invalid details! try again</p> }
+        {!loading && loginErr && (
+          <p style={{ color: "#F8333D" }}>{errMessage}</p>
+        )}
         <form action="">
           <div className=" col-12 ">
             <label htmlFor="exampleFormControlInput1" className="form-label">
@@ -121,8 +169,11 @@ export default function Login() {
             </div>
           </div>
         </form>
-        <button onClick={handleSubmit}>
-          {(login.loading && "Checking...") || "Start playin'"}
+        <button
+          className={`${user.username && user.password ? "" : "disabled"}`}
+          onClick={handleSubmit}
+        >
+          {(loading && <Dots />) || "Start playin'"}
         </button>
 
         <p>

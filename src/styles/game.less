@@ -1,0 +1,183 @@
+@import "tools";
+
+.fade.offcanvas-backdrop.show {
+  height: 100vh;
+  background: black;
+  position: absolute;
+  top: 0px;
+  opacity: 0.5;
+  z-index: 999;
+  width: 100vw;
+}
+.match-offcanvas {
+  height: 70vh;
+  border-radius: 30px 30px 0px 0px;
+  padding: 15px;
+  .btn-close {
+    position: absolute;
+    right: 50px;
+  }
+  .offcanvas-header {
+    flex-direction: column;
+    .actions {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .teams {
+      margin-top: 50px;
+
+      // margin-top: 11px;
+      display: flex;
+      width: 100%;
+      gap: 33px;
+      justify-content: center;
+      align-items: center;
+      .team {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        span {
+          display: block;
+          font-weight: bold;
+          font-size: 0.6rem;
+          text-align: center;
+        }
+        img {
+          width: 48px;
+          aspect-ratio: 1/1;
+        }
+      }
+      .x {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 15px;
+        height: 100%;
+        pointer-events: none;
+        // border: 1px solid red;
+        span {
+          pointer-events: none;
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+  .offcanvas-body {
+    display: grid;
+    grid-template-rows: 3.5fr 1fr;
+    section {
+      // border: 1px solid red;
+      overflow-y: scroll;
+    }
+
+    .options {
+      // display: grid;
+      // grid-template-columns: auto auto auto;
+      align-content: start;
+      row-gap: 3vw;
+      column-gap: 2vw;
+      padding: 10px;
+      .group {
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 5px;
+        .header{
+          padding-left: 10px;
+          font-size: .8rem;
+          margin-bottom: 10px;
+          color:  rgba(0, 0, 0, 0.8);;
+        }
+        .buttons {
+          display: flex;
+          justify-content: space-between;
+          button {
+            background-color: transparent;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            width: 80px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            &.in-ticket{
+              span{
+                &.name{
+                  background: @blue-gradient;
+                  color: white;
+                }
+              }
+              color: white;
+            }
+            span {
+              color: rgba(0, 0, 0, 0.50); 
+              font-weight: 300;
+              text-align: center;
+              width: 100%;
+              pointer-events: none;
+              &.name {
+                font-weight: 500;
+                padding: 4px;
+                border-radius: 6px;
+                border: 0.5px solid rgba(0, 0, 0, 0.05);
+                background: #f3f4f5;
+                margin-bottom: 3px;
+                color: black;
+
+              }
+            }
+          }
+        }
+      }
+      // button {
+      //   background: transparent;
+      //   border: none;
+
+      //   div {
+      //     background: #f3f4f5;
+      //     padding: 7px;
+      //     border-radius: 3px;
+      //     margin-bottom: 5px;
+      //     font-weight: bold;
+      //     font-size: 0.6rem;
+      //   }
+      //   span {
+      //     font-size: 0.7rem;
+      //     opacity: 0.5;
+      //   }
+      // }
+    }
+    .action {
+      // border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background-color: #ff4b00;
+        width: 90%;
+        border: none;
+        height: 2.5rem;
+        color: white;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+.match-cont {
+  width: 100%;
+  position: relative;
+  .action-button {
+    border: 1px solid green;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+  }
+}

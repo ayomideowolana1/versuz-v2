@@ -1,0 +1,22 @@
+
+
+.loading{
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    justify-content: center;
+    align-items: center;
+    gap: 38px;
+
+    h3{
+        letter-spacing: 3px;
+    }
+    transition: 0.03s ease-in;
+    animation: fade 1.5s linear infinite;
+}
+@keyframes fade {
+    0% { opacity: 0.9; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.9; }
+  }

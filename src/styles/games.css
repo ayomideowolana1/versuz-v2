@@ -30,6 +30,19 @@
 .border {
   border: 1px solid;
 }
+html {
+  background: #fff;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #FCFDFD;
+}
+.row {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+}
 .games .games-not-empty .nav-item {
   width: 45%;
 }
@@ -40,25 +53,25 @@
   text-align: center !important;
 }
 .games .games-empty {
-  margin-top: 76px;
+  margin-top: 4.75rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 17px 0px 17px 0px;
+  padding: 1.0625rem 0rem 1.0625rem 0rem;
 }
 .games .games-empty h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
-  margin: 16px;
+  margin: 1rem;
 }
 .games .games-empty button {
   background: #fe4e40;
   border: none;
   width: 95%;
-  margin: 17px;
-  height: 60px;
+  margin: 1.0625rem;
+  height: 3.75rem;
   color: white;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }

@@ -30,12 +30,28 @@
 .border {
   border: 1px solid;
 }
+html {
+  background: #fff;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #FCFDFD;
+}
+.row {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+}
 * {
   font-family: Pilat Extended;
 }
 .tabs {
-  height: 48px;
-  margin-top: 10px;
+  position: sticky;
+  top: 10.6vh;
+  padding: 16px;
+  background: #fff;
+  z-index: 900;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -59,13 +75,14 @@
 }
 .tabs-body {
   padding: 8px 16px;
-  max-height: 77vh;
+  max-height: 80vh;
+  min-height: 80vh;
   overflow-y: scroll;
   border-bottom: 1px solid #f2f2f2;
 }
 .tabs-body .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 8px;
+  column-gap: 12px;
   row-gap: 16px;
 }

@@ -45,14 +45,18 @@ export const signUpAsync = createAsyncThunk("signUpAsync", async (payload) => {
     .then((data) => data.json())
     .catch((err) => err);
 
-
   return response;
 });
+
+
+    
 
 export const authSlice = createSlice({
   // Authentication state
   name: "auth",
   initialState: {
+    authenticated: sessionStorage.getItem('vsrz') || false,
+    authenticationToken: sessionStorage.getItem('vsrz') ? sessionStorage.getItem('vsrz').token : "",
     login: {
       loading: false,
       errMessage: "",
@@ -67,12 +71,29 @@ export const authSlice = createSlice({
       errMessage: "",
       isErr: false,
     },
+    
     loggedOut: true,
   },
-  reducers: {},
+  reducers: {
+    setAuthenticated: (state, action) => {
+      return {
+        ...state,
+        authenticated: action.payload.status,
+        authToken: action.payload.token,
+      };
+    },
+    verify: (state, action) => {
+      
+      return {
+        ...state,
+        authenticated: action.payload.status,
+        authToken: action.payload.token,
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(loginAsync.pending, (state, action) => {
-        // clean state when making a new request
+      // clean state when making a new request
       state.login = {
         loading: true,
         errMessage: "",
@@ -80,65 +101,63 @@ export const authSlice = createSlice({
       };
     });
     builder.addCase(loginAsync.rejected, (state, action) => {
-    //   request rejected
+      //   request rejected
       state.login.loading = false;
       state.login.isErr = true;
       state.login.errMessage = "Unable to login! Try again";
     });
     builder.addCase(loginAsync.fulfilled, (state, action) => {
-        if (!action.payload.success) {
-            state.login = {
-                loading: false,
-                errMessage: "Invalid details! Try again",
-                isErr: true,
-              };
-              
+      if (!action.payload.success) {
+        state.login = {
+          loading: false,
+          errMessage: "Invalid details! Try again",
+          isErr: true,
+        };
       } else {
         //   state.errMessage =
         //   "Network Error! Please make sure you are connected to the internet";
         state.login = {
-            loading: false,
-            errMessage: "Invalid details! Try again",
-            isErr: true,
-          };
+          loading: false,
+          errMessage: "Invalid details! Try again",
+          isErr: true,
+        };
       }
     });
     builder.addCase(signUpAsync.pending, (state, action) => {
       // clean state when making a new request
-    state.signup = {
-      loading: true,
-      errMessage: "",
-      isErr: false,
-    };
+      state.signup = {
+        loading: true,
+        errMessage: "",
+        isErr: false,
+      };
     });
     builder.addCase(signUpAsync.rejected, (state, action) => {
       //   request rejected
-        state.signup.loading = false;
-        state.signup.isErr = true;
-        state.signup.errMessage = "Sorry we couldn't sign you up! Try again";
+      state.signup.loading = false;
+      state.signup.isErr = true;
+      state.signup.errMessage = "Sorry we couldn't sign you up! Try again";
     });
     builder.addCase(signUpAsync.fulfilled, (state, action) => {
-      console.log(action.payload)
-    //   if (!action.payload.success) {
-    //       state.login = {
-    //           loading: false,
-    //           errMessage: "Invalid details! Try again",
-    //           isErr: true,
-    //         };
-            
-    // } else {
-    //   //   state.errMessage =
-    //   //   "Network Error! Please make sure you are connected to the internet";
-    //   state.login = {
-    //       loading: false,
-    //       errMessage: "Invalid details! Try again",
-    //       isErr: true,
-    //     };
-    // }
-  });
+      console.log(action.payload);
+      //   if (!action.payload.success) {
+      //       state.login = {
+      //           loading: false,
+      //           errMessage: "Invalid details! Try again",
+      //           isErr: true,
+      //         };
 
+      // } else {
+      //   //   state.errMessage =
+      //   //   "Network Error! Please make sure you are connected to the internet";
+      //   state.login = {
+      //       loading: false,
+      //       errMessage: "Invalid details! Try again",
+      //       isErr: true,
+      //     };
+      // }
+    });
   },
 });
 
-export const { logout, getSavedCridentials } = authSlice.actions;
+export const { logout, getSavedCridentials, setAuthenticated } = authSlice.actions;
 export default authSlice.reducer;

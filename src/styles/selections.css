@@ -1,0 +1,165 @@
+@import "../fonts/stylesheet.css";
+@font-face {
+  font-family: syne;
+  src: url("../fonts/Syne-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: geolacia;
+  src: url("../fonts/Geologica-VariableFont_CRSV,SHRP,slnt,wght.ttf");
+}
+@font-face {
+  font-family: dmsans;
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf");
+}
+.font-syne {
+  font-family: syne;
+}
+.font-pilat {
+  font-family: Pilat Extended;
+}
+.font-dm-sans {
+  font-family: dmsans;
+  font-style: normal;
+}
+.font-geolacia {
+  font-family: geolacia;
+}
+* {
+  scroll-behavior: smooth;
+}
+.border {
+  border: 1px solid;
+}
+html {
+  background: #fff;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  background: #FCFDFD;
+}
+.row {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+}
+.selections .count {
+  display: inline-block;
+  width: 2.25rem;
+  aspect-ratio: 1/1;
+  background: #e22e38;
+  color: white;
+  border: 0.1406rem solid #fff;
+  font-size: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: dmsans;
+  font-style: normal;
+}
+.selections .selections-body {
+  border-bottom: 0.0625rem solid #d9d9d9;
+  height: 73vh;
+  overflow-y: scroll;
+  padding: 0.625rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.selections .selections-body .selection {
+  display: grid;
+  grid-template-columns: 3fr 1.5fr 0.5fr;
+  padding: 0.5rem 1.875rem;
+  align-items: start;
+}
+.selections .selections-body .selection .teams {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.selections .selections-body .selection .teams .team {
+  display: flex;
+  gap: 0.5rem;
+}
+.selections .selections-body .selection .teams .team img {
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+}
+.selections .selections-body .selection .teams .team span {
+  font-family: dmsans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+.selections .selections-body .selection .option {
+  display: grid;
+  padding: 0rem 1rem;
+  border-left: 0.0625rem solid #d9d9d9;
+}
+.selections .selections-body .selection .option .choice {
+  background: #5e57f2;
+  padding: 0.625rem;
+  color: white;
+  border-radius: 0.5rem;
+}
+.selections .selections-body .selection .option span {
+  font-family: dmsans;
+  font-style: normal;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #5e57f2;
+}
+.selections .selections-body .selection .cancel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selections .bottom {
+  padding: 1rem;
+}
+.selections .bottom > div {
+  box-sizing: border-box;
+}
+.selections .bottom span,
+.selections .bottom p {
+  font-family: dmsans;
+  font-style: normal;
+  margin: 0rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+.selections .bottom .cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.selections .bottom .input .input-cont {
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #d9dadb;
+  font-family: dmsans;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 0.875rem;
+}
+.selections .bottom .input .input-cont input {
+  width: 7.5rem;
+  padding: 0.3125rem;
+  font-size: 0.9rem;
+  border: none;
+}
+.selections .bottom .action button {
+  background: #fe4e40;
+  font-family: dmsans;
+  font-style: normal;
+  border: none;
+  color: white;
+  padding: 1rem 1.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  width: 100%;
+}
