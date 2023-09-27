@@ -208,7 +208,7 @@ export function NewGameNav() {
       <section className="nav-body">
         <Back variant="dark" />
 
-        <span className="text">New Game</span>
+        <span className="text">Create Game</span>
         <InfoIcon />
       </section>
     </nav>

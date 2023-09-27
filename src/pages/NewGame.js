@@ -33,7 +33,7 @@ export default function NewGame() {
       <NewGameNav />
       {/* <SearchBar /> */}
       <section>
-        <h3>Create Game</h3>
+        {/* <h3>Create Game</h3> */}
         <div className="choices">
           <Link to="/select/new-1v1">
             <div className="choice onevone">
