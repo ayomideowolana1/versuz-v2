@@ -140,3 +140,56 @@ body {
   font-style: normal;
   font-weight: bold;
 }
+.modal .modal-header {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+.modal .modal-header h5 {
+  font-size: 1rem;
+  font-family: dmsans;
+  font-style: normal;
+  font-weight: bold;
+}
+.modal .modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-body p {
+  font-size: 0.9rem;
+  font-family: dmsans;
+  font-style: normal;
+  color: #475467;
+  text-align: left;
+  width: 100%;
+}
+.modal .modal-body .input-cont {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #D9D9D9;
+  font-size: 1.5rem;
+  padding: 5px 0px ;
+}
+.modal .modal-body .input-cont input {
+  border: none;
+  font-weight: bold;
+  padding: 0px;
+}
+.modal .modal-body .input-cont input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.modal .modal-body .buttons {
+  width: 100%;
+  padding: 0px;
+}
+.modal .modal-body .buttons button {
+  border-radius: 8px;
+  width: 100%;
+}
+.modal .modal-body .buttons .white {
+  color: #475467;
+  border: 1px solid #475467;
+}

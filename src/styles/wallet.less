@@ -104,3 +104,61 @@
     font-weight: bold;
   }
 }
+
+
+.modal{
+  .modal-header{
+    // border: 1px solid red;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    h5{
+      font-size: 1rem;
+      .font-dm-sans;
+      font-weight: bold;
+    }
+  }
+  .modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p{
+      font-size: .9rem;
+      .font-dm-sans;
+      color: #475467;
+      text-align: left;
+      width: 100%;
+    }
+    .input-cont{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #D9D9D9;
+      font-size: 1.5rem;
+      padding: 5px 0px ;
+      input{
+        border: none;
+        font-weight: bold;
+        padding: 0px;
+        &:focus{
+          outline: none;
+          box-shadow: none;
+        }
+    
+      }
+    }
+    .buttons{
+      width: 100%;
+      padding: 0px;
+      button{
+        border-radius: 8px;
+        width: 100%;
+      }
+      .white{
+        color: #475467;
+        border: 1px solid #475467;
+      }
+    }
+  }
+
+}

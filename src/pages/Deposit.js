@@ -256,16 +256,16 @@ export default function Deposit() {
         </p>
 
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input readOnly type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+            <label for="exampleFormControlInput1" class="form-label">Bank</label>
+            <input readOnly type="email" class="form-control" id="exampleFormControlInput1" placeholder="Providus Bank" />
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input readOnly type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+            <label for="exampleFormControlInput1" class="form-label">Account Number</label>
+            <input readOnly type="email" class="form-control" id="exampleFormControlInput1" placeholder="0232983020" />
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input  readOnly type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+            <label for="exampleFormControlInput1" class="form-label">Account Name</label>
+            <input  readOnly type="email" class="form-control" id="exampleFormControlInput1" placeholder="Versuz-Owolana Ayomide" />
         </div>
       </div>
     </div>
