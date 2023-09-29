@@ -370,7 +370,7 @@ export function ProfileNav(props) {
 }
 
 export function WalletNav(props) {
-  const { view, click } = props;
+  const { view, click,text } = props;
   return (
     <nav className="new-game">
       <section className="nav-header">
@@ -379,7 +379,7 @@ export function WalletNav(props) {
       <section className="nav-body">
         <InPageBack variant="dark" click={click} />
 
-        <span className="text">Wallet</span>
+        <span className="text">{text || "Wallet"}</span>
         <InfoIcon  variant="dark"/>
       </section>
     </nav>

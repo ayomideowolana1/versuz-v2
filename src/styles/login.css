@@ -33,9 +33,13 @@
 html {
   background: #fff;
 }
+:root {
+  height: 100dvh;
+}
 body {
   padding: 0px;
   margin: 0px;
+  height: 100dvh;
   background: #FCFDFD;
 }
 .row {
@@ -50,6 +54,7 @@ body {
   position: relative;
   /* Define the animation */
   background: url("../images/mobile-auth-bg.svg");
+  height: 100dvh;
   overflow-y: scroll;
   background-size: cover;
   padding: 1.0625rem;

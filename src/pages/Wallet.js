@@ -1,6 +1,7 @@
 import React from 'react'
 import { WalletNav } from '../components/Navbar'
 import "../styles/wallet.css";
+import { useSelector } from 'react-redux';
 
 function Arrow(props){
     const {type} = props
@@ -34,11 +35,15 @@ function CashFlow(props){
 }
 
 export default function Wallet() {
+    const balance = useSelector(state => state.auth.profile.money_balance)
+
   return (
     <div className="wallet">
         <WalletNav />
+
+        
         <div className="wallet-body">
-            <div className="amount">N 100,000</div>
+            <div className="amount">N {balance.toLocaleString()}</div>
 
             <div className="buttons">
                 <button className='gray'>Withdraw</button>

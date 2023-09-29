@@ -19,6 +19,8 @@ import Profile from "./pages/Profile";
 import { useSelector } from "react-redux";
 import Wallet from "./pages/Wallet";
 import { useNavigate } from "react-router-dom";
+import Ticket from "./pages/Ticket";
+import Deposit from "./pages/Deposit";
 
 import logo from "./images/versuz-icon.svg"
 import "./styles/loading.css"
@@ -60,6 +62,7 @@ function App() {
         <Route path="reset-password/:id" element={<PasswordResetLink />} />
         <Route path="verify-account" element={<VerifyAccount />} />
         <Route path="join/:id" element={ <Join />} />
+        <Route path="ticket/:id" element={ <Ticket />} />
         
           <Route path="explore" element={<Explore />} />
           <Route path="games" element={<Games />} />
@@ -70,6 +73,7 @@ function App() {
           <Route path="select/:id" element={<Select />} />
           <Route path="profile" element={<Profile />} />
           <Route path="wallet" element={<Wallet />} />
+          <Route path="deposit" element={<Deposit />} />
           <Route path="loading" element={<Loading />} />
           
         

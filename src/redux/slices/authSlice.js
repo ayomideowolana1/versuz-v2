@@ -71,6 +71,7 @@ export const authSlice = createSlice({
       errMessage: "",
       isErr: false,
     },
+    profile:{},
     
     loggedOut: true,
   },
@@ -90,6 +91,12 @@ export const authSlice = createSlice({
         authToken: action.payload.token,
       };
     },
+    setProfile: (state,action) => {
+      return{
+        ...state,
+        profile: action.payload
+      }
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(loginAsync.pending, (state, action) => {
@@ -157,7 +164,8 @@ export const authSlice = createSlice({
       // }
     });
   },
+  
 });
 
-export const { logout, getSavedCridentials, setAuthenticated } = authSlice.actions;
+export const { logout, getSavedCridentials, setAuthenticated, setProfile } = authSlice.actions;
 export default authSlice.reducer;

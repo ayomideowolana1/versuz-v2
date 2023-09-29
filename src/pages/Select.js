@@ -518,6 +518,9 @@ const loading = useSelector((state) => state.dataLoading);
 
 useEffect(() => {
   dispatch(setView("regions"));
+  if(id == 'new-1v1' || id == 'new-pool' || id == 'new-tournament'){
+    
+  }
 }, []);
 const viewRegions = (e) => {
   // setView("competitions");

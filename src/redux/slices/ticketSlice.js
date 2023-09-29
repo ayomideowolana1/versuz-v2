@@ -196,12 +196,13 @@ export const ticketSlice = createSlice({
       const { id, stake,number_of_games } = action.payload;
       return {
         ...state,
-        pairID: id,
-        pairStake: stake,
-        number_of_games: number_of_games,
+        pairID: id || state.pairID,
+        pairStake: stake || state.pairStake,
+        number_of_games: number_of_games || state.selectedOptionsCount,
       };
     },
   },
+
   // extraReducers: (builder) => {
   //   builder.addCase(createTicketAsync.pending, (state, action) => {
   //     state.createTicketState.isLoading = true;
