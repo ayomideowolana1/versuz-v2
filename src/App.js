@@ -16,11 +16,12 @@ import Join from "./pages/Join";
 import Selections from "./pages/Selections";
 import Select from "./pages/Select";
 import Profile from "./pages/Profile";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Wallet from "./pages/Wallet";
 import { useNavigate } from "react-router-dom";
 import Ticket from "./pages/Ticket";
 import Deposit from "./pages/Deposit";
+import { resetAuthState } from "./redux/slices/authSlice";
 
 import logo from "./images/versuz-icon.svg"
 import "./styles/loading.css"
@@ -39,6 +40,26 @@ export const Loading =()=>{
 }
 
 function App() {
+  const state = useSelector((state)=> state);
+  const dispatch = useDispatch()
+
+  // useEffect(()=>{
+  //   sessionStorage.setItem('state',JSON.stringify(state))
+  // },[state])
+
+  // useEffect(()=>{
+  //   let state = sessionStorage.getItem('state')
+  //   if(state){
+  //     let json = JSON.parse(state)
+  //     dispatch(resetAuthState(json.auth))
+  //     // explore
+  //     // games
+  //     // select
+  //     // ticket
+
+  //   }
+  // },[])
+  
   const authenticated = useSelector((state)=> state.auth.authenticated);
   const navigate = useNavigate()
 

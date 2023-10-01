@@ -86,12 +86,13 @@ export default function Login() {
       .then((data) => data.json())
       .catch((err) => err);
 
-    // console.log(response);
+    console.log(response);
 
     setLoading(false);
 
     if (response.success) {
-      dispatch(setAuthenticated({status:true,token:response.token}))
+      dispatch(setAuthenticated({status:true,token:response.token,user:response.user}))
+      
       navigate("/explore");
 
       const authObj = JSON.stringify({

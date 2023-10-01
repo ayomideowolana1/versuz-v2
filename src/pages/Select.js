@@ -22,6 +22,7 @@ updateGames,
 import { setDataLoading } from "../redux/slices/selectSlice";
 import { Loading } from "../App";
 
+
 function Arrow() {
 return (
   <svg
@@ -80,8 +81,8 @@ useEffect(() => {
 
 const showCompetitons = (e) => {
   const { id } = e.target;
-  const { name } = e.target.dataset;
-  dispatch(setCurrentRegion({ id, name }));
+  const { name,index } = e.target.dataset;
+  dispatch(setCurrentRegion({ id, name,index }));
   dispatch(setView("competitions"));
 };
 
@@ -96,6 +97,7 @@ return (
             <div
               key={region.id}
               id={region.id}
+              data-index={index}
               className="region"
               onClick={showCompetitons}
               data-name={region.country}
@@ -117,7 +119,7 @@ return (
 );
 }
 
-function Competitions() {
+export function Competitions() {
 const [comps, setComps] = useState([]);
 const dispatch = useDispatch();
 
@@ -229,17 +231,17 @@ return (
 );
 }
 
-function Fixtures() {
+export function Fixtures() {
 const dispatch = useDispatch();
 const { id, name, emblem } = useSelector((state) => state.select.competition);
 const ticketSelections = useSelector((state) => state.ticket.selectedOptions);
-const loading = useSelector((state) => state.ticket.dataLoading);
+const [loading,setLoading] = useState(false);
 
 const [fixtures, setFixtures] = useState([]);
 const [selected, setSelected] = useState(false);
 
 const getFixtures = async () => {
-  dispatch(setDataLoading(true));
+  setLoading(true)
   const url = `https://www.backend.versuz.co/fixtures/${id}`;
 
   const config = {
@@ -259,6 +261,7 @@ const getFixtures = async () => {
 
   if (response.success) {
     setFixtures(response.data);
+    setLoading(false)
     // setComps(response.data);
     //   setUser(response.data.user)
     //   setStake(response.data.stake)
@@ -273,7 +276,7 @@ const getFixtures = async () => {
 };
 useEffect(() => {
   getFixtures();
-  dispatch(setDataLoading(false));
+  // dispatch(setDataLoading(false));
 }, []);
 
 /*
@@ -284,7 +287,10 @@ useEffect(() => {
 
 return (
   <>
-    {loading ? <Loading /> : <div className="fixtures">
+  
+    {loading ? <Loading /> : 
+    
+    <div className="fixtures">
       <div className="fixtures-nav">
         <div className="row1">
           <img
@@ -313,6 +319,8 @@ return (
       </div>
 
       <div className="fixtures-body">
+        {fixtures.length > 0 ? 
+        <>
         {fixtures.map((fixture, index) => {
           return (
             <div
@@ -350,13 +358,21 @@ return (
             </div>
           );
         })}
+        </>
+        :
+        <div style={{textAlign:"center"}}>
+          No Fixtures Available
+        </div>
+
+
+      }
       </div>
     </div> }
   </>
 );
 }
 
-function OddButton(props) {
+export function OddButton(props) {
 const compName = useSelector((state) => state.select.activeCompetitionName);
 const compId = useSelector((state) => state.select.activeCompetitionId);
 const { odd, opt } = props;
@@ -423,7 +439,7 @@ return (
 );
 }
 
-function Game() {
+export function Game() {
 const dispatch = useDispatch();
 const fixture = useSelector((state) => state.select.currentFixture);
 const competition = useSelector((state) => state.select.competition);
@@ -511,6 +527,7 @@ export default function Select() {
 // const [view, setView] = useState("region");
 const [prevView, setPrevView] = useState("");
 const view = useSelector((state) => state.select.current);
+const ticket = useSelector((state) => state.ticket);
 const { id } = useParams();
 const naigate = useNavigate();
 const dispatch = useDispatch();
@@ -534,7 +551,15 @@ const viewFixtures = (e) => {
 
 const navHandler = () => {
   if (view == "regions") {
-    naigate(`/join/${id}`);
+    if(id == 'new-1v1' || id == 'new-pool' || id == 'new-tournament'){
+      
+      naigate(`/explore`);
+    }else{
+
+      naigate(`/join/${id}`);
+    }
+    
+    
   } else if (view == "competitions") {
     dispatch(setView("regions"));
   } else if (view == "fixtures") {

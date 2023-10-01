@@ -26,8 +26,9 @@ export const selectSlice = createSlice({
     selectionState: {
       game_type : "new",
     },
+    dataLoading: true,
+    storedCompetitions:[]
     // navigationLoading
-    dataLoading: true
 
   },
   reducers: {
@@ -69,6 +70,7 @@ export const selectSlice = createSlice({
     setCompetitions: (state, action) => {
       return {
         ...state,
+        
         competitions: action.payload,
       };
     },

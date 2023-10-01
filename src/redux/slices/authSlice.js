@@ -28,9 +28,6 @@ export const loginAsync = createAsyncThunk("loginAsync", async (payload) => {
 });
 
 export const signUpAsync = createAsyncThunk("signUpAsync", async (payload) => {
-  // check if user is connected to the internet
-  // const isOnline = window.navigator.onLine;
-
   const url = process.env.REACT_APP_AUTH_ENDPOINT_REGISTER;
   const config = {
     method: "POST",
@@ -48,31 +45,27 @@ export const signUpAsync = createAsyncThunk("signUpAsync", async (payload) => {
   return response;
 });
 
-
-    
-
 export const authSlice = createSlice({
   // Authentication state
   name: "auth",
   initialState: {
-    authenticated: sessionStorage.getItem('vsrz') || false,
-    authenticationToken: sessionStorage.getItem('vsrz') ? sessionStorage.getItem('vsrz').token : "",
+    authenticated: sessionStorage.getItem("vsrz") || false,
+    authenticationToken: sessionStorage.getItem("vsrz")
+      ? sessionStorage.getItem("vsrz").token
+      : "",
     login: {
       loading: false,
       errMessage: "",
       isErr: false,
     },
-    user: {
-      username: "",
-      userAuthKey: "",
-    },
+    user: {},
     signup: {
       loading: false,
       errMessage: "",
       isErr: false,
     },
-    profile:{},
-    
+    profile: {},
+
     loggedOut: true,
   },
   reducers: {
@@ -81,22 +74,27 @@ export const authSlice = createSlice({
         ...state,
         authenticated: action.payload.status,
         authToken: action.payload.token,
+        user: action.payload.user,
       };
     },
     verify: (state, action) => {
-      
       return {
         ...state,
         authenticated: action.payload.status,
         authToken: action.payload.token,
       };
     },
-    setProfile: (state,action) => {
-      return{
+    setProfile: (state, action) => {
+      return {
         ...state,
-        profile: action.payload
-      }
-    }
+        profile: action.payload,
+      };
+    },
+    
+    
+    resetAuthState: (state, action) => {
+      state = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(loginAsync.pending, (state, action) => {
@@ -164,8 +162,8 @@ export const authSlice = createSlice({
       // }
     });
   },
-  
 });
 
-export const { logout, getSavedCridentials, setAuthenticated, setProfile } = authSlice.actions;
+export const { logout, getSavedCridentials, setAuthenticated, setProfile,resetAuthState } =
+  authSlice.actions;
 export default authSlice.reducer;

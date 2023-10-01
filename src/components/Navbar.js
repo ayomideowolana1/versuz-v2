@@ -6,6 +6,7 @@ import userIcon from "../images/user-icon.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getTicketCount } from "../redux/slices/ticketSlice";
+import { UseSelector } from "react-redux/es/hooks/useSelector";
 
 function HomeIcon() {
   return (
@@ -85,10 +86,11 @@ function InPageBack(props) {
 
 function TicketIcon() {
   const ticket = useSelector((state) => state.ticket);
+  const ticket_count = useSelector(state => state.explore.ticket_count)
   return (
     <Link to="/games" className="ticket-icon-link">
       <div className="ticket-icon">
-        <div className="number">0</div>
+        <div className="number">{ticket_count}</div>
         <svg
           width="34"
           height="30"
@@ -171,11 +173,17 @@ function ViewSelections(){
 
 function UserIcon() {
   const authenticated = useSelector(state => state.auth.authenticated)
+  const user = useSelector(state => state.explore.user)
   return (
     <>
     {authenticated && 
     <Link to="/profile">
-      <img className="user-icon" src={userIcon} />
+      {
+      user.profile_pic ?
+      <img className="user-icon"style={{borderRadius: "50%"}}  src={` ${user.profile_pic}`} />
+      :
+      <img className="user-icon" src={`https://www.backend.versuz.co/media/blank.jpg`} />
+      }
     </Link>
     }
     </>

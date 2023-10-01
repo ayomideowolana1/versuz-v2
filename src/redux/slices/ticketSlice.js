@@ -40,6 +40,7 @@ export const createTicketAsync = createAsyncThunk(
     return response;
   }
 );
+
 function convertToArray(object) {
   let result = [];
 
@@ -178,6 +179,9 @@ export const ticketSlice = createSlice({
         }
       }
 
+      localStorage.setItem("ticket",JSON.stringify(state.selectedOptions))
+      
+
       return {
         ...state,
         selectedOptionsCount: fieldCount,
@@ -203,39 +207,6 @@ export const ticketSlice = createSlice({
     },
   },
 
-  // extraReducers: (builder) => {
-  //   builder.addCase(createTicketAsync.pending, (state, action) => {
-  //     state.createTicketState.isLoading = true;
-  //     console.log("loading")
-  //   });
-  //   builder.addCase(createTicketAsync.rejected, (state, action) => {
-  //     state.createTicketState.isLoading = false;
-  //     console.log("failed")
-
-  //   });
-
-  //   builder.addCase(createTicketAsync.fulfilled, (state, action) => {
-  //     state.createTicketState.isLoading = false;
-  //     console.log(action.payload)
-  //     if(action.payload.error ){
-  //       alert(action.payload.error)
-  //     }else if(action.payload.success=="Excercise Patience, your betcode will be paired with soon") {
-  //       state.createTicketState.isLoading = false;
-  //       state.createTicketState.ticketCreated = true;
-  //       state.createTicketState.ticketPaired = false;
-  //       //  { success: "Betcode has been succesfully paired with 4LIBWJ4A", pair_code: "UN3VTXK2TXTV" }
-  //     }else {
-  //       state.createTicketState.isLoading = false;
-  //       state.createTicketState.ticketCreated = true;
-  //       state.createTicketState.ticketPaired = true;
-  //       state.createTicketState.pairCode = action.payload.pair_code
-
-  //     }
-
-  //     console.log(action)
-
-  //   });
-  // },
 });
 
 export const {

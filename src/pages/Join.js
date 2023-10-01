@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/join.css";
 import { useParams } from "react-router-dom";
 import { Loading } from "../App";
+import { setPairDetails } from "../redux/slices/ticketSlice";
+import { useDispatch } from "react-redux";
 
 function convertToAmPm(time) {
   const [hourStr, minuteStr] = time.split(":");
@@ -55,12 +57,14 @@ export default function Join() {
   const [user, setUser] = useState({});
   const [stake, setStake] = useState("");
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch()
   const [redirect, setredirect] = useState({
     status: false,
     location: "login",
   });
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -101,10 +105,22 @@ export default function Join() {
     getGames();
     
   }, []);
-  // if (show) {
+  
+
+  const proceed = ()=> {
+    dispatch(setPairDetails({id,stake,number_of_games:games.length}));
+    // console.log(id,stake)
+    setTimeout(()=>{
+      navigate(`/select/${id}`)
+    },100)
+  }
+
     return (
       <div className="join">
         <JoinNav />
+
+        {loading ? <Loading /> : 
+        <>
         <div className="header">
           <img src={userIcon} alt="" />
           <div className="header-text">
@@ -122,11 +138,15 @@ export default function Join() {
               return <Game key={index} data={game} />;
             })}
           </div>
-        <Link to={`/select/${id}`}>
-          <button className="continue">Continue</button>
-        </Link>
+        
+          <button className="continue" onClick={proceed}>Continue</button>
+        
           </>
         )}
+        
+        </>
+        }
+      
 
         </div>
     );

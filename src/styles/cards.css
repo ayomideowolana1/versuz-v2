@@ -33,9 +33,13 @@
 html {
   background: #fff;
 }
+:root {
+  height: 100dvh;
+}
 body {
   padding: 0px;
   margin: 0px;
+  height: 100dvh;
   background: #FCFDFD;
 }
 .row {
@@ -81,6 +85,8 @@ a {
   color: white;
   font-size: 0.875rem;
   font-weight: 500;
+  width: 100px;
+  overflow: hidden;
 }
 .onevone .card-main .bottom {
   display: grid;

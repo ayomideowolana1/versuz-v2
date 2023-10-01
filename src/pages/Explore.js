@@ -38,9 +38,10 @@ function NewGameButton() {
 export default function Explore() {
   const dispatch = useDispatch()
   const unpaired_games = useSelector(state => state.explore.games)
-  const data = ["", "", "", "", "", "", "", "", ""];
   
+  const data = ["", "", "", "", "", "", "", "", ""];
   const loading = useSelector(state => state.explore.loading)
+  
   
   useEffect(()=>{
     dispatch(getAvailableGamesAsync())

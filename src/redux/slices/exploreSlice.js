@@ -27,9 +27,11 @@ export const exploreSlice = createSlice({
   name: "explore",
   initialState: {
     games: [],
+    ticket_count:0,
     loading:false,
     error:false,
-    errMessage: ""
+    errMessage: "",
+    user:{}
 
   },
   reducers: {},
@@ -52,6 +54,8 @@ export const exploreSlice = createSlice({
       } else {
         console.log(action.payload)
         state.games = action.payload.unpaired_betcodes
+        state.ticket_count = action.payload.ticket_number
+        state.user = action.payload.user
         
       }
     });

@@ -5,6 +5,7 @@ import mailSent from "../images/mail-sent.svg";
 import closedEye from "../images/closed-eye.svg";
 import openEye from "../images/open-eye.svg";
 import { useLocation } from 'react-router-dom';
+import { Dots } from "./Login";
 
 import "../styles/login.css";
 
@@ -38,7 +39,7 @@ export default function PasswordReset() {
         reactkey: process.env.REACT_APP_AUTH_KEY,
         "Content-Type": "application/json",
       },
-      // body: JSON.stringify({email:email}),
+      // body: JSON.stringify({email:email}),RiPlYD
     };
 
     const response = await fetch(url, config)
@@ -476,6 +477,8 @@ export function VerifyAccount() {
   const queryParams = new URLSearchParams(location.search);
   const email = queryParams.get('data');
 
+  const [loading,setLoading] = useState(false)
+
   const validate = async() => {
     const url = `https://www.backend.versuz.co/accounts/verify_email/${pin}`;
     const config = {
@@ -486,6 +489,7 @@ export function VerifyAccount() {
       },
       // body: JSON.stringify({pin:pin}),
     };
+    setLoading(true)
 
     const response = await fetch(url, config)
       .then((data) => data.json())
@@ -496,8 +500,9 @@ export function VerifyAccount() {
     if (response.success) {
       // setView("two");
       // navigate to verify
-      navigate("/explore")
+      navigate("/login")
     } else {
+      setLoading(false)
       // show error
       setPinInvalid(true);
       // setView("one")
@@ -557,7 +562,9 @@ export function VerifyAccount() {
               <button className="white">Cancel</button>
             </div>
             <div className="col-6">
-              <button onClick={validate}>Verify</button>
+              <button onClick={validate} className={loading && "disabled"}>
+                {loading ? <Dots /> : "Verify"}
+                </button>
             </div>
           </div>
         </div>
