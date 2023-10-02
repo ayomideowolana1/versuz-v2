@@ -150,8 +150,5 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5vw 10vw;
-  width: 80vw;
-  padding: 0.625rem;
   /* Shadow/xs */
 }

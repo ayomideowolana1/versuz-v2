@@ -98,7 +98,7 @@ export default function Profile() {
         <div className="profile-body">
           <div className="user">
             <img
-              src={`https://www.backend.versuz.co/${user.profile_pic}`}
+              src={`data:image/jpeg;base64,${user.profile_pic}`}
               alt=""
             />
             <span>@{user.username}</span>

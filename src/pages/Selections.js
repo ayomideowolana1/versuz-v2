@@ -137,7 +137,7 @@ export default function Selections() {
       url = "https://www.backend.versuz.co/games/versus";
       payload = {
         data: arr,
-        amount: ticket.pairStake,
+        amount: newGameStake,
       };
     }
 

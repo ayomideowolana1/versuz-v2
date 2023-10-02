@@ -30,6 +30,7 @@ export function OneVOneCard(props) {
             </div>
             <div className="center ">
               <img className="userIcon" src={userIcon} alt="" />
+              
               <span>
                 {data.number_of_wins} - {data.opponent[0].number_of_wins}
               </span>
@@ -74,12 +75,12 @@ export function OneVOneCard(props) {
           )) || (
             <div className="center">
               {/* <img className="userIcon" src={userIcon} alt="" /> */}
-              {data.profile_pic}
-              {data.profile_pic ? (
+              
+              {data.user.profile_pic ? (
                 <img
                   className="userIcon"
                   style={{ borderRadius: "50%" }}
-                  src={` ${data.profile_pic}`}
+                  src={`data:image/jpeg;base64, ${data.user.profile_pic}`}
                 />
               ) : (
                 <img

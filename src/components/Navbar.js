@@ -180,7 +180,7 @@ function UserIcon() {
     <Link to="/profile">
       {
       user.profile_pic ?
-      <img className="user-icon"style={{borderRadius: "50%"}}  src={` ${user.profile_pic}`} />
+      <img className="user-icon"style={{borderRadius: "50%"}}  src={` data:image/jpeg;base64,${user.profile_pic}`} />
       :
       <img className="user-icon" src={`https://www.backend.versuz.co/media/blank.jpg`} />
       }
